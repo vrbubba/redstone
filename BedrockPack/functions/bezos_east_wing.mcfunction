@@ -1,24 +1,28 @@
 # Phase 7: East wing - Dining, Screening, Bar, Billiard, Kitchen, Wine Cellar, Spa
 # --- Formal Dining Room (seats 24) ---
 fill ~90 ~0 ~62 ~138 ~0 ~78 dark_oak_planks
-fill ~98 ~1 ~67 ~130 ~1 ~73 dark_oak_planks
-fill ~100 ~1 ~68 ~128 ~1 ~72 gold_block
-setblock ~99 ~2 ~67 gold_block
-setblock ~99 ~2 ~73 gold_block
-setblock ~103 ~2 ~67 gold_block
-setblock ~103 ~2 ~73 gold_block
-setblock ~107 ~2 ~67 gold_block
-setblock ~107 ~2 ~73 gold_block
-setblock ~111 ~2 ~67 gold_block
-setblock ~111 ~2 ~73 gold_block
-setblock ~115 ~2 ~67 gold_block
-setblock ~115 ~2 ~73 gold_block
-setblock ~119 ~2 ~67 gold_block
-setblock ~119 ~2 ~73 gold_block
-setblock ~123 ~2 ~67 gold_block
-setblock ~123 ~2 ~73 gold_block
-setblock ~127 ~2 ~67 gold_block
-setblock ~127 ~2 ~73 gold_block
+fill ~100 ~1 ~68 ~128 ~1 ~72 dark_oak_planks
+setblock ~101 ~1 ~67 spruce_planks
+setblock ~101 ~1 ~73 spruce_planks
+setblock ~104 ~1 ~67 spruce_planks
+setblock ~104 ~1 ~73 spruce_planks
+setblock ~107 ~1 ~67 spruce_planks
+setblock ~107 ~1 ~73 spruce_planks
+setblock ~110 ~1 ~67 spruce_planks
+setblock ~110 ~1 ~73 spruce_planks
+setblock ~113 ~1 ~67 spruce_planks
+setblock ~113 ~1 ~73 spruce_planks
+setblock ~116 ~1 ~67 spruce_planks
+setblock ~116 ~1 ~73 spruce_planks
+setblock ~119 ~1 ~67 spruce_planks
+setblock ~119 ~1 ~73 spruce_planks
+setblock ~122 ~1 ~67 spruce_planks
+setblock ~122 ~1 ~73 spruce_planks
+setblock ~125 ~1 ~67 spruce_planks
+setblock ~125 ~1 ~73 spruce_planks
+setblock ~99 ~1 ~70 spruce_planks
+setblock ~129 ~1 ~70 spruce_planks
+setblock ~114 ~2 ~70 gold_block
 fill ~138 ~1 ~68 ~138 ~6 ~72 quartz_block
 fill ~138 ~1 ~69 ~138 ~3 ~71 air
 setblock ~138 ~1 ~70 netherrack
@@ -29,11 +33,11 @@ setblock ~105 ~7 ~70 glowstone
 setblock ~107 ~7 ~70 glowstone
 setblock ~106 ~7 ~69 glowstone
 setblock ~106 ~7 ~71 glowstone
-setblock ~118 ~7 ~70 glowstone
-setblock ~117 ~7 ~70 glowstone
-setblock ~119 ~7 ~70 glowstone
-setblock ~118 ~7 ~69 glowstone
-setblock ~118 ~7 ~71 glowstone
+setblock ~122 ~7 ~70 glowstone
+setblock ~121 ~7 ~70 glowstone
+setblock ~123 ~7 ~70 glowstone
+setblock ~122 ~7 ~69 glowstone
+setblock ~122 ~7 ~71 glowstone
 # --- Private Screening Room (20 seats) ---
 fill ~107 ~0 ~27 ~138 ~0 ~45 black_wool
 fill ~107 ~1 ~27 ~138 ~8 ~27 black_concrete

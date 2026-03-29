@@ -38,12 +38,10 @@ setblock ~10 ~9 ~33 dark_oak_planks
 setblock ~6 ~10 ~33 sea_lantern
 setblock ~10 ~10 ~33 sea_lantern
 fill ~12 ~9 ~29 ~12 ~9 ~31 dark_oak_planks
-fill ~12 ~10 ~29 ~12 ~10 ~31 dark_oak_planks
 setblock ~4 ~9 ~29 spruce_planks
 fill ~6 ~8 ~31 ~10 ~8 ~32 white_wool
 fill ~5 ~10 ~27 ~11 ~13 ~27 glass
 setblock ~8 ~15 ~31 glowstone
-setblock ~8 ~16 ~31 gold_block
 fill ~2 ~9 ~31 ~2 ~11 ~32 air
 fill ~2 ~12 ~31 ~2 ~12 ~32 gold_block
 fill ~2 ~8 ~36 ~14 ~16 ~44 quartz_block
@@ -57,12 +55,10 @@ setblock ~10 ~9 ~42 dark_oak_planks
 setblock ~6 ~10 ~42 sea_lantern
 setblock ~10 ~10 ~42 sea_lantern
 fill ~12 ~9 ~38 ~12 ~9 ~40 dark_oak_planks
-fill ~12 ~10 ~38 ~12 ~10 ~40 dark_oak_planks
 setblock ~4 ~9 ~38 spruce_planks
 fill ~6 ~8 ~40 ~10 ~8 ~41 red_wool
 fill ~5 ~10 ~36 ~11 ~13 ~36 glass
 setblock ~8 ~15 ~40 glowstone
-setblock ~8 ~16 ~40 gold_block
 fill ~2 ~9 ~40 ~2 ~11 ~41 air
 fill ~2 ~12 ~40 ~2 ~12 ~41 gold_block
 fill ~2 ~8 ~45 ~14 ~16 ~53 quartz_block
@@ -76,12 +72,10 @@ setblock ~10 ~9 ~51 dark_oak_planks
 setblock ~6 ~10 ~51 sea_lantern
 setblock ~10 ~10 ~51 sea_lantern
 fill ~12 ~9 ~47 ~12 ~9 ~49 dark_oak_planks
-fill ~12 ~10 ~47 ~12 ~10 ~49 dark_oak_planks
 setblock ~4 ~9 ~47 spruce_planks
 fill ~6 ~8 ~49 ~10 ~8 ~50 blue_wool
 fill ~5 ~10 ~45 ~11 ~13 ~45 glass
 setblock ~8 ~15 ~49 glowstone
-setblock ~8 ~16 ~49 gold_block
 fill ~2 ~9 ~49 ~2 ~11 ~50 air
 fill ~2 ~12 ~49 ~2 ~12 ~50 gold_block
 fill ~2 ~8 ~54 ~14 ~16 ~62 quartz_block
@@ -95,12 +89,10 @@ setblock ~10 ~9 ~60 dark_oak_planks
 setblock ~6 ~10 ~60 sea_lantern
 setblock ~10 ~10 ~60 sea_lantern
 fill ~12 ~9 ~56 ~12 ~9 ~58 dark_oak_planks
-fill ~12 ~10 ~56 ~12 ~10 ~58 dark_oak_planks
 setblock ~4 ~9 ~56 spruce_planks
 fill ~6 ~8 ~58 ~10 ~8 ~59 green_wool
 fill ~5 ~10 ~54 ~11 ~13 ~54 glass
 setblock ~8 ~15 ~58 glowstone
-setblock ~8 ~16 ~58 gold_block
 fill ~2 ~9 ~58 ~2 ~11 ~59 air
 fill ~2 ~12 ~58 ~2 ~12 ~59 gold_block
 fill ~2 ~8 ~63 ~14 ~16 ~71 quartz_block
@@ -114,12 +106,10 @@ setblock ~10 ~9 ~69 dark_oak_planks
 setblock ~6 ~10 ~69 sea_lantern
 setblock ~10 ~10 ~69 sea_lantern
 fill ~12 ~9 ~65 ~12 ~9 ~67 dark_oak_planks
-fill ~12 ~10 ~65 ~12 ~10 ~67 dark_oak_planks
 setblock ~4 ~9 ~65 spruce_planks
 fill ~6 ~8 ~67 ~10 ~8 ~68 yellow_wool
 fill ~5 ~10 ~63 ~11 ~13 ~63 glass
 setblock ~8 ~15 ~67 glowstone
-setblock ~8 ~16 ~67 gold_block
 fill ~2 ~9 ~67 ~2 ~11 ~68 air
 fill ~2 ~12 ~67 ~2 ~12 ~68 gold_block
 fill ~2 ~8 ~72 ~14 ~16 ~80 quartz_block
@@ -133,12 +123,10 @@ setblock ~10 ~9 ~78 dark_oak_planks
 setblock ~6 ~10 ~78 sea_lantern
 setblock ~10 ~10 ~78 sea_lantern
 fill ~12 ~9 ~74 ~12 ~9 ~76 dark_oak_planks
-fill ~12 ~10 ~74 ~12 ~10 ~76 dark_oak_planks
 setblock ~4 ~9 ~74 spruce_planks
 fill ~6 ~8 ~76 ~10 ~8 ~77 pink_wool
 fill ~5 ~10 ~72 ~11 ~13 ~72 glass
 setblock ~8 ~15 ~76 glowstone
-setblock ~8 ~16 ~76 gold_block
 fill ~2 ~9 ~76 ~2 ~11 ~77 air
 fill ~2 ~12 ~76 ~2 ~12 ~77 gold_block
 fill ~2 ~8 ~81 ~14 ~16 ~89 quartz_block
@@ -152,12 +140,10 @@ setblock ~10 ~9 ~87 dark_oak_planks
 setblock ~6 ~10 ~87 sea_lantern
 setblock ~10 ~10 ~87 sea_lantern
 fill ~12 ~9 ~83 ~12 ~9 ~85 dark_oak_planks
-fill ~12 ~10 ~83 ~12 ~10 ~85 dark_oak_planks
 setblock ~4 ~9 ~83 spruce_planks
 fill ~6 ~8 ~85 ~10 ~8 ~86 cyan_wool
 fill ~5 ~10 ~81 ~11 ~13 ~81 glass
 setblock ~8 ~15 ~85 glowstone
-setblock ~8 ~16 ~85 gold_block
 fill ~2 ~9 ~85 ~2 ~11 ~86 air
 fill ~2 ~12 ~85 ~2 ~12 ~86 gold_block
 fill ~107 ~8 ~27 ~119 ~16 ~35 quartz_block
@@ -171,12 +157,10 @@ setblock ~115 ~9 ~33 dark_oak_planks
 setblock ~111 ~10 ~33 sea_lantern
 setblock ~115 ~10 ~33 sea_lantern
 fill ~117 ~9 ~29 ~117 ~9 ~31 dark_oak_planks
-fill ~117 ~10 ~29 ~117 ~10 ~31 dark_oak_planks
 setblock ~109 ~9 ~29 spruce_planks
 fill ~111 ~8 ~31 ~115 ~8 ~32 light_blue_wool
 fill ~110 ~10 ~27 ~116 ~13 ~27 glass
 setblock ~113 ~15 ~31 glowstone
-setblock ~113 ~16 ~31 gold_block
 fill ~107 ~9 ~31 ~107 ~11 ~32 air
 fill ~107 ~12 ~31 ~107 ~12 ~32 gold_block
 fill ~107 ~8 ~36 ~119 ~16 ~44 quartz_block
@@ -190,12 +174,10 @@ setblock ~115 ~9 ~42 dark_oak_planks
 setblock ~111 ~10 ~42 sea_lantern
 setblock ~115 ~10 ~42 sea_lantern
 fill ~117 ~9 ~38 ~117 ~9 ~40 dark_oak_planks
-fill ~117 ~10 ~38 ~117 ~10 ~40 dark_oak_planks
 setblock ~109 ~9 ~38 spruce_planks
 fill ~111 ~8 ~40 ~115 ~8 ~41 orange_wool
 fill ~110 ~10 ~36 ~116 ~13 ~36 glass
 setblock ~113 ~15 ~40 glowstone
-setblock ~113 ~16 ~40 gold_block
 fill ~107 ~9 ~40 ~107 ~11 ~41 air
 fill ~107 ~12 ~40 ~107 ~12 ~41 gold_block
 fill ~107 ~8 ~45 ~119 ~16 ~53 quartz_block
@@ -209,12 +191,10 @@ setblock ~115 ~9 ~51 dark_oak_planks
 setblock ~111 ~10 ~51 sea_lantern
 setblock ~115 ~10 ~51 sea_lantern
 fill ~117 ~9 ~47 ~117 ~9 ~49 dark_oak_planks
-fill ~117 ~10 ~47 ~117 ~10 ~49 dark_oak_planks
 setblock ~109 ~9 ~47 spruce_planks
 fill ~111 ~8 ~49 ~115 ~8 ~50 magenta_wool
 fill ~110 ~10 ~45 ~116 ~13 ~45 glass
 setblock ~113 ~15 ~49 glowstone
-setblock ~113 ~16 ~49 gold_block
 fill ~107 ~9 ~49 ~107 ~11 ~50 air
 fill ~107 ~12 ~49 ~107 ~12 ~50 gold_block
 fill ~107 ~8 ~54 ~119 ~16 ~62 quartz_block
@@ -228,12 +208,10 @@ setblock ~115 ~9 ~60 dark_oak_planks
 setblock ~111 ~10 ~60 sea_lantern
 setblock ~115 ~10 ~60 sea_lantern
 fill ~117 ~9 ~56 ~117 ~9 ~58 dark_oak_planks
-fill ~117 ~10 ~56 ~117 ~10 ~58 dark_oak_planks
 setblock ~109 ~9 ~56 spruce_planks
 fill ~111 ~8 ~58 ~115 ~8 ~59 purple_wool
 fill ~110 ~10 ~54 ~116 ~13 ~54 glass
 setblock ~113 ~15 ~58 glowstone
-setblock ~113 ~16 ~58 gold_block
 fill ~107 ~9 ~58 ~107 ~11 ~59 air
 fill ~107 ~12 ~58 ~107 ~12 ~59 gold_block
 fill ~107 ~8 ~63 ~119 ~16 ~71 quartz_block
@@ -247,12 +225,10 @@ setblock ~115 ~9 ~69 dark_oak_planks
 setblock ~111 ~10 ~69 sea_lantern
 setblock ~115 ~10 ~69 sea_lantern
 fill ~117 ~9 ~65 ~117 ~9 ~67 dark_oak_planks
-fill ~117 ~10 ~65 ~117 ~10 ~67 dark_oak_planks
 setblock ~109 ~9 ~65 spruce_planks
 fill ~111 ~8 ~67 ~115 ~8 ~68 lime_wool
 fill ~110 ~10 ~63 ~116 ~13 ~63 glass
 setblock ~113 ~15 ~67 glowstone
-setblock ~113 ~16 ~67 gold_block
 fill ~107 ~9 ~67 ~107 ~11 ~68 air
 fill ~107 ~12 ~67 ~107 ~12 ~68 gold_block
 fill ~107 ~8 ~72 ~119 ~16 ~80 quartz_block
@@ -266,12 +242,10 @@ setblock ~115 ~9 ~78 dark_oak_planks
 setblock ~111 ~10 ~78 sea_lantern
 setblock ~115 ~10 ~78 sea_lantern
 fill ~117 ~9 ~74 ~117 ~9 ~76 dark_oak_planks
-fill ~117 ~10 ~74 ~117 ~10 ~76 dark_oak_planks
 setblock ~109 ~9 ~74 spruce_planks
 fill ~111 ~8 ~76 ~115 ~8 ~77 gray_wool
 fill ~110 ~10 ~72 ~116 ~13 ~72 glass
 setblock ~113 ~15 ~76 glowstone
-setblock ~113 ~16 ~76 gold_block
 fill ~107 ~9 ~76 ~107 ~11 ~77 air
 fill ~107 ~12 ~76 ~107 ~12 ~77 gold_block
 fill ~107 ~8 ~81 ~119 ~16 ~89 quartz_block
@@ -285,12 +259,10 @@ setblock ~115 ~9 ~87 dark_oak_planks
 setblock ~111 ~10 ~87 sea_lantern
 setblock ~115 ~10 ~87 sea_lantern
 fill ~117 ~9 ~83 ~117 ~9 ~85 dark_oak_planks
-fill ~117 ~10 ~83 ~117 ~10 ~85 dark_oak_planks
 setblock ~109 ~9 ~83 spruce_planks
 fill ~111 ~8 ~85 ~115 ~8 ~86 brown_wool
 fill ~110 ~10 ~81 ~116 ~13 ~81 glass
 setblock ~113 ~15 ~85 glowstone
-setblock ~113 ~16 ~85 gold_block
 fill ~107 ~9 ~85 ~107 ~11 ~86 air
 fill ~107 ~12 ~85 ~107 ~12 ~86 gold_block
 function bezos_floor3

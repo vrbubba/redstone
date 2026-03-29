@@ -104,26 +104,26 @@ fill ~62 ~1 ~14 ~62 ~6 ~14 oak_log
 fill ~60 ~6 ~12 ~64 ~9 ~16 leaves
 fill ~78 ~1 ~14 ~78 ~6 ~14 oak_log
 fill ~76 ~6 ~12 ~80 ~9 ~16 leaves
-fill ~20 ~1 ~20 ~55 ~1 ~22 grass_block
-fill ~85 ~1 ~20 ~120 ~1 ~22 grass_block
-setblock ~22 ~2 ~21 yellow_flower
-setblock ~26 ~2 ~21 red_flower
-setblock ~30 ~2 ~21 yellow_flower
-setblock ~34 ~2 ~21 red_flower
-setblock ~38 ~2 ~21 yellow_flower
-setblock ~42 ~2 ~21 red_flower
-setblock ~46 ~2 ~21 yellow_flower
-setblock ~50 ~2 ~21 red_flower
-setblock ~54 ~2 ~21 yellow_flower
-setblock ~87 ~2 ~21 red_flower
-setblock ~91 ~2 ~21 yellow_flower
-setblock ~95 ~2 ~21 red_flower
-setblock ~99 ~2 ~21 yellow_flower
-setblock ~103 ~2 ~21 red_flower
-setblock ~107 ~2 ~21 yellow_flower
-setblock ~111 ~2 ~21 red_flower
-setblock ~115 ~2 ~21 yellow_flower
-setblock ~119 ~2 ~21 red_flower
+fill ~20 ~0 ~20 ~55 ~0 ~22 grass_block
+fill ~85 ~0 ~20 ~120 ~0 ~22 grass_block
+setblock ~22 ~1 ~21 yellow_flower
+setblock ~26 ~1 ~21 red_flower
+setblock ~30 ~1 ~21 yellow_flower
+setblock ~34 ~1 ~21 red_flower
+setblock ~38 ~1 ~21 yellow_flower
+setblock ~42 ~1 ~21 red_flower
+setblock ~46 ~1 ~21 yellow_flower
+setblock ~50 ~1 ~21 red_flower
+setblock ~54 ~1 ~21 yellow_flower
+setblock ~87 ~1 ~21 red_flower
+setblock ~91 ~1 ~21 yellow_flower
+setblock ~95 ~1 ~21 red_flower
+setblock ~99 ~1 ~21 yellow_flower
+setblock ~103 ~1 ~21 red_flower
+setblock ~107 ~1 ~21 yellow_flower
+setblock ~111 ~1 ~21 red_flower
+setblock ~115 ~1 ~21 yellow_flower
+setblock ~119 ~1 ~21 red_flower
 fill ~61 ~1 ~-18 ~64 ~8 ~-18 stone_bricks
 fill ~76 ~1 ~-18 ~79 ~8 ~-18 stone_bricks
 setblock ~62 ~9 ~-18 sea_lantern

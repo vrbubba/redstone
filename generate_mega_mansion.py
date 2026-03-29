@@ -73,13 +73,13 @@ def gen_driveway():
         for x in [62, 78]:
             lines.append(fill(x,1,z, x,6,z, "oak_log"))
             lines.append(fill(x-2,6,z-2, x+2,9,z+2, "leaves"))
-    # Front flower beds
-    lines.append(fill(20,1,20, 55,1,22, "grass_block"))
-    lines.append(fill(85,1,20, 120,1,22, "grass_block"))
+    # Front flower beds (at ground level, not floating)
+    lines.append(fill(20,0,20, 55,0,22, "grass_block"))
+    lines.append(fill(85,0,20, 120,0,22, "grass_block"))
     for x in range(22, 55, 4):
-        lines.append(sb(x,2,21, "red_flower" if x%8==2 else "yellow_flower"))
+        lines.append(sb(x,1,21, "red_flower" if x%8==2 else "yellow_flower"))
     for x in range(87, 120, 4):
-        lines.append(sb(x,2,21, "yellow_flower" if x%8==3 else "red_flower"))
+        lines.append(sb(x,1,21, "yellow_flower" if x%8==3 else "red_flower"))
     # Gate pillars
     lines.append(fill(61,1,-18, 64,8,-18, "stone_bricks"))
     lines.append(fill(76,1,-18, 79,8,-18, "stone_bricks"))
@@ -249,20 +249,28 @@ def gen_west_wing():
     # FORMAL LIVING ROOM (X=2-33, Z=27-45)
     lines.append(comment("--- Formal Living Room ---"))
     lines.append(fill(2,0,27, 33,0,45, "dark_oak_planks"))
-    lines.append(fill(2,1,27, 2,5,45, "spruce_planks"))  # wood paneling
-    lines.append(fill(33,1,27, 33,5,45, "spruce_planks"))
-    lines.append(fill(2,1,27, 33,5,27, "spruce_planks"))
-    lines.append(fill(2,1,45, 33,5,45, "spruce_planks"))
-    # Grand fireplace
+    # Wood paneling lower walls
+    lines.append(fill(2,1,27, 2,3,45, "spruce_planks"))
+    lines.append(fill(33,1,27, 33,3,45, "spruce_planks"))
+    lines.append(fill(2,1,27, 33,3,27, "spruce_planks"))
+    lines.append(fill(2,1,45, 33,3,45, "spruce_planks"))
+    # Grand fireplace (against outer wall, grounded)
     lines.append(fill(2,1,34, 4,6,38, "stone_bricks"))
     lines.append(fill(3,1,35, 3,3,37, "air"))
     lines.append(sb(3,1,36, "netherrack"))
     lines.append(fill(2,5,34, 4,5,38, "gold_block"))  # gold mantel
-    # Seating
-    for z in [30,32,38,40]:
-        lines.append(fill(12,1,z, 18,1,z, "spruce_planks"))
-    lines.append(fill(24,1,34, 24,1,38, "spruce_planks"))
-    lines.append(sb(17,FH,36, "glowstone"))
+    # Sofa set (facing fireplace)
+    lines.append(fill(10,1,34, 10,1,38, "spruce_planks"))  # long sofa
+    lines.append(fill(10,2,34, 10,2,34, "spruce_planks"))  # arm
+    lines.append(fill(10,2,38, 10,2,38, "spruce_planks"))  # arm
+    lines.append(fill(16,1,34, 16,1,38, "spruce_planks"))  # opposite sofa
+    # Coffee table between sofas
+    lines.append(fill(12,1,35, 14,1,37, "dark_oak_planks"))
+    # Side table with lamp
+    lines.append(sb(20,1,30, "dark_oak_planks"))
+    lines.append(sb(20,2,30, "sea_lantern"))
+    # Ceiling light (embedded in ceiling, not floating)
+    lines.append(sb(17,FH-1,36, "glowstone"))
 
     # LIBRARY (X=2-33, Z=47-58)
     lines.append(comment("--- Library ---"))
@@ -270,38 +278,47 @@ def gen_west_wing():
     lines.append(fill(14,1,46, 18,4,46, "air"))  # doorway
     lines.append(fill(14,5,46, 18,5,46, "gold_block"))  # gold frame
     lines.append(fill(2,0,47, 33,0,58, "red_wool"))
+    # Bookshelves
     lines.append(fill(2,1,47, 2,6,58, "bookshelf"))
     lines.append(fill(3,1,58, 33,6,58, "bookshelf"))
     lines.append(fill(33,1,47, 33,6,57, "bookshelf"))
     lines.append(fill(3,1,47, 20,3,47, "bookshelf"))
-    # Reading table (emerald)
-    lines.append(fill(12,1,51, 22,1,54, "emerald_block"))
-    lines.append(sb(17,FH,52, "glowstone"))
+    # Reading desk + chair
+    lines.append(fill(15,1,52, 19,1,54, "dark_oak_planks"))
+    lines.append(sb(17,1,55, "spruce_planks"))  # chair
+    # Reading lamp on desk
+    lines.append(sb(15,2,52, "sea_lantern"))
+    # Ceiling light
+    lines.append(sb(17,FH-1,52, "glowstone"))
 
     # BALLROOM (X=2-50, Z=62-98)
     lines.append(comment("--- Grand Ballroom ---"))
     lines.append(fill(2,0,62, 50,0,98, "quartz_block"))
-    lines.append(fill(6,0,66, 46,0,94, "gold_block"))  # gold dance floor
-    lines.append(fill(10,0,70, 42,0,90, "quartz_block"))
-    # Emerald pillars
+    lines.append(fill(8,0,68, 44,0,92, "gold_block"))  # gold dance floor
+    lines.append(fill(12,0,72, 40,0,88, "quartz_block"))  # inner pattern
+    # Emerald pillars (grounded on floor)
     for x in [6, 16, 26, 36, 46]:
         lines.append(fill(x,1,62, x,FH-1,62, "emerald_block"))
         lines.append(fill(x,1,98, x,FH-1,98, "emerald_block"))
-    # Chandeliers (3)
+    # Side seating benches (grounded)
+    lines.append(fill(3,1,70, 3,1,78, "spruce_planks"))
+    lines.append(fill(3,1,82, 3,1,90, "spruce_planks"))
+    lines.append(fill(48,1,70, 48,1,78, "spruce_planks"))
+    lines.append(fill(48,1,82, 48,1,90, "spruce_planks"))
+    # Chandeliers (embedded in ceiling)
     for z in [72, 80, 88]:
         lines.append(sb(26,FH-1,z, "glowstone"))
         for d in [(-1,0),(1,0),(0,-1),(0,1)]:
             lines.append(sb(26+d[0],FH-1,z+d[1], "glowstone"))
-        lines.append(sb(26,FH,z, "gold_block"))
 
-    # ART GALLERY (hallway X=2-15, along back wall)
+    # ART GALLERY (gold trim on back wall, grounded)
     lines.append(comment("--- Art Gallery ---"))
-    lines.append(fill(2,1,98, 50,1,98, "gold_block"))  # gold trim base
+    lines.append(fill(2,1,98, 50,1,98, "gold_block"))
 
-    # MUSIC ROOM (X=2-20, Z=47-58, upper part)
+    # MUSIC ROOM (corner area)
     lines.append(comment("--- Music Room ---"))
-    lines.append(fill(2,0,47, 10,0,58, "amethyst_block"))
-    lines.append(sb(6,FH,52, "glowstone"))
+    lines.append(fill(2,0,47, 10,0,55, "amethyst_block"))
+    lines.append(sb(6,FH-1,51, "glowstone"))
 
     lines.append("function bezos_east_wing")
     write_func("bezos_west_wing", lines)
@@ -313,21 +330,25 @@ def gen_east_wing():
     # FORMAL DINING (X=90-138, Z=62-78)
     lines.append(comment("--- Formal Dining Room (seats 24) ---"))
     lines.append(fill(90,0,62, 138,0,78, "dark_oak_planks"))
-    # 24-seat table
-    lines.append(fill(98,1,67, 130,1,73, "dark_oak_planks"))
-    lines.append(fill(100,1,68, 128,1,72, "gold_block"))  # gold inlay table
-    # Place settings (gold blocks as plates)
-    for x in range(99, 130, 4):
-        lines.append(sb(x,2,67, "gold_block"))
-        lines.append(sb(x,2,73, "gold_block"))
-    # Lapis + marble fireplace
+    # Long dining table
+    lines.append(fill(100,1,68, 128,1,72, "dark_oak_planks"))
+    # Chairs along both sides (grounded on floor)
+    for x in range(101, 128, 3):
+        lines.append(sb(x,1,67, "spruce_planks"))
+        lines.append(sb(x,1,73, "spruce_planks"))
+    # Head chairs
+    lines.append(sb(99,1,70, "spruce_planks"))
+    lines.append(sb(129,1,70, "spruce_planks"))
+    # Centerpiece (gold, on the table)
+    lines.append(sb(114,2,70, "gold_block"))
+    # Lapis + marble fireplace (built from floor)
     lines.append(fill(138,1,68, 138,6,72, "quartz_block"))
     lines.append(fill(138,1,69, 138,3,71, "air"))
     lines.append(sb(138,1,70, "netherrack"))
     lines.append(sb(138,5,68, "lapis_block"))
     lines.append(sb(138,5,72, "lapis_block"))
-    # Chandeliers
-    for x in [106, 118]:
+    # Chandeliers (embedded in ceiling)
+    for x in [106, 122]:
         lines.append(sb(x,FH-1,70, "glowstone"))
         for d in [(-1,0),(1,0),(0,-1),(0,1)]:
             lines.append(sb(x+d[0],FH-1,70+d[1], "glowstone"))
@@ -401,20 +422,19 @@ def make_bedroom(lines, x1, z1, y_base, width=10, depth=8, carpet="white_wool", 
     # Nightstands (both sides of bed)
     lines.append(sb(bx-1,y_base+1,z2-2, "dark_oak_planks"))
     lines.append(sb(bx+3,y_base+1,z2-2, "dark_oak_planks"))
-    lines.append(sb(bx-1,y_base+2,z2-2, "sea_lantern"))  # bedside lamp
-    lines.append(sb(bx+3,y_base+2,z2-2, "sea_lantern"))  # bedside lamp
+    # Bedside lamps (on nightstands, not floating)
+    lines.append(sb(bx-1,y_base+2,z2-2, "sea_lantern"))
+    lines.append(sb(bx+3,y_base+2,z2-2, "sea_lantern"))
     # Dresser against side wall
     lines.append(fill(x2-2,y_base+1,z1+2, x2-2,y_base+1,z1+4, "dark_oak_planks"))
-    lines.append(fill(x2-2,y_base+2,z1+2, x2-2,y_base+2,z1+4, "dark_oak_planks"))
     # Armchair
     lines.append(sb(x1+2,y_base+1,z1+2, "spruce_planks"))
     # Rug
     lines.append(fill(bx-1,y_base,z2-4, bx+3,y_base,z2-3, carpet))
     # Window
     lines.append(fill(x1+3,y_base+2,z1, x1+width-3,y_base+FH-3,z1, "glass"))
-    # Chandelier
+    # Ceiling light (embedded in ceiling, not floating)
     lines.append(sb(x1+width//2, y_base+FH-1, z1+depth//2, "glowstone"))
-    lines.append(sb(x1+width//2, y_base+FH, z1+depth//2, "gold_block"))
     # Door opening with gold frame
     lines.append(fill(x1,y_base+1,z1+depth//2, x1,y_base+3,z1+depth//2+1, "air"))
     lines.append(fill(x1,y_base+4,z1+depth//2, x1,y_base+4,z1+depth//2+1, "gold_block"))
