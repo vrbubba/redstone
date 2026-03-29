@@ -1,0 +1,30 @@
+# Phase 1: Clear area
+fill ~-10 ~-1 ~-10 ~20 ~29 ~20 air
+fill ~-10 ~-1 ~21 ~20 ~29 ~50 air
+fill ~-10 ~30 ~-10 ~20 ~38 ~20 air
+fill ~-10 ~30 ~21 ~20 ~38 ~50 air
+fill ~21 ~-1 ~-10 ~29 ~29 ~20 air
+fill ~21 ~-1 ~21 ~29 ~29 ~50 air
+fill ~21 ~30 ~-10 ~29 ~38 ~20 air
+fill ~21 ~30 ~21 ~29 ~38 ~50 air
+fill ~30 ~-1 ~-10 ~60 ~29 ~20 air
+fill ~30 ~-1 ~21 ~60 ~29 ~50 air
+fill ~30 ~30 ~-10 ~60 ~38 ~20 air
+fill ~30 ~30 ~21 ~60 ~38 ~50 air
+fill ~61 ~-1 ~-10 ~69 ~29 ~20 air
+fill ~61 ~-1 ~21 ~69 ~29 ~50 air
+fill ~61 ~30 ~-10 ~69 ~38 ~20 air
+fill ~61 ~30 ~21 ~69 ~38 ~50 air
+fill ~70 ~-1 ~-10 ~100 ~29 ~20 air
+fill ~70 ~-1 ~21 ~100 ~29 ~50 air
+fill ~70 ~30 ~-10 ~100 ~38 ~20 air
+fill ~70 ~30 ~21 ~100 ~38 ~50 air
+fill ~-10 ~-1 ~-10 ~20 ~0 ~20 grass_block
+fill ~-10 ~-1 ~21 ~20 ~0 ~50 grass_block
+fill ~21 ~-1 ~-10 ~51 ~0 ~20 grass_block
+fill ~21 ~-1 ~21 ~51 ~0 ~50 grass_block
+fill ~52 ~-1 ~-10 ~82 ~0 ~20 grass_block
+fill ~52 ~-1 ~21 ~82 ~0 ~50 grass_block
+fill ~83 ~-1 ~-10 ~100 ~0 ~20 grass_block
+fill ~83 ~-1 ~21 ~100 ~0 ~50 grass_block
+function coaster_station

@@ -1,0 +1,26 @@
+# FIREWORKS SHOW! Run this at the finale!
+summon fireworks_rocket ~-2 ~6 ~35
+summon fireworks_rocket ~3 ~8 ~35
+summon fireworks_rocket ~7 ~10 ~35
+summon fireworks_rocket ~11 ~7 ~35
+summon fireworks_rocket ~-2 ~9 ~45
+summon fireworks_rocket ~3 ~6 ~45
+summon fireworks_rocket ~7 ~8 ~45
+summon fireworks_rocket ~11 ~10 ~45
+summon fireworks_rocket ~4 ~12 ~40
+summon fireworks_rocket ~0 ~11 ~40
+summon fireworks_rocket ~8 ~9 ~40
+summon fireworks_rocket ~-1 ~8 ~37
+summon fireworks_rocket ~5 ~10 ~43
+summon fireworks_rocket ~9 ~7 ~38
+summon fireworks_rocket ~2 ~15 ~40
+summon fireworks_rocket ~6 ~13 ~40
+summon fireworks_rocket ~10 ~11 ~40
+summon fireworks_rocket ~-1 ~11 ~35
+summon fireworks_rocket ~4 ~13 ~35
+summon fireworks_rocket ~8 ~15 ~35
+summon fireworks_rocket ~12 ~12 ~35
+summon fireworks_rocket ~-1 ~14 ~45
+summon fireworks_rocket ~4 ~11 ~45
+summon fireworks_rocket ~8 ~13 ~45
+summon fireworks_rocket ~12 ~15 ~45
