@@ -58,13 +58,22 @@ def gen_master():
     write_func("build_bezos_mansion", lines)
 
 def gen_clear():
+    # Split clearing into 2 phases to avoid command overload
+    lines = [comment("Phase 1a: Clear air")]
+    # Clear in vertical slices to stay under limits
+    for xs in range(-50, 200, 50):
+        xe = min(xs + 49, 200)
+        lines.append(fill(xs, -6, -20, xe, 30, 260, "air"))
+    lines.append("function bezos_clear2")
+    write_func("bezos_clear", lines)
+
+def gen_clear2():
     lines = [
-        comment("Phase 1: Clear and landscape"),
-        fill(-50,-6,-20, 200,30,260, "air"),
-        fill(-50,-1,-20, 200,0,260, "grass_block"),
+        comment("Phase 1b: Lay ground"),
+        fill(-50, -1, -20, 200, 0, 260, "grass_block"),
         "function bezos_driveway",
     ]
-    write_func("bezos_clear", lines)
+    write_func("bezos_clear2", lines)
 
 def gen_driveway():
     lines = [comment("Phase 2: Driveway, motor court, gate, perimeter")]
@@ -666,45 +675,49 @@ def gen_pool():
     lines.append("function bezos_guesthouses")
     write_func("bezos_pool", lines)
 
-def gen_guesthouses():
-    lines = [comment("Phase 11: Two guest houses with 10 bedrooms each")]
-    for side, bx in [("West", -40), ("East", 145)]:
-        lines.append(comment(f"--- {side} Guest House (10 bedrooms) ---"))
-        gw, gd = 35, 50
-        x1, z1 = bx, 105
-        x2, z2 = bx+gw, z1+gd
-        # Foundation + floors
-        lines.append(fill(x1,-1,z1, x2,-1,z2, "quartz_block"))
-        for fl in range(2):
-            yb = fl * FH
-            lines.append(fill(x1,yb,z1, x2,yb,z2, "dark_oak_planks"))
-            lines.append(fill(x1,yb+1,z1, x2,yb+FH,z2, "quartz_block"))
-            lines.append(fill(x1+2,yb+1,z1+2, x2-2,yb+FH-1,z2-2, "air"))
-            # Gold trim
-            lines.append(fill(x1,yb+1,z1, x2,yb+1,z1, "gold_block"))
-            lines.append(fill(x1,yb+1,z2, x2,yb+1,z2, "gold_block"))
-            # Windows
-            for z in range(z1+4, z2-4, 8):
-                lines.append(fill(x1,yb+2,z, x1,yb+FH-2,z+4, "glass"))
-                lines.append(fill(x2,yb+2,z, x2,yb+FH-2,z+4, "glass"))
-            # 5 bedrooms per floor
-            for i in range(5):
-                bz = z1 + 3 + i * 9
-                if bz + 8 > z2 - 2: break
-                bx1 = x1 + 2
-                bw = (gw - 4) // 2
-                make_bedroom(lines, bx1, bz, yb, bw, 7,
-                    ["white_wool","red_wool","blue_wool","cyan_wool","pink_wool"][i])
-                make_bedroom(lines, bx1+bw+1, bz, yb, bw, 7,
-                    ["orange_wool","lime_wool","yellow_wool","purple_wool","magenta_wool"][i])
-        # Roof
-        lines.append(fill(x1,FH*2,z1, x2,FH*2,z2, "quartz_block"))
-        # Door
-        lines.append(fill(x1+gw//2-2,1,z1, x1+gw//2+2,4,z1, "air"))
-        lines.append(fill(x1+gw//2-2,5,z1, x1+gw//2+2,5,z1, "gold_block"))
+def _build_guesthouse(lines, side, bx):
+    """Build one guest house with 10 bedrooms"""
+    lines.append(comment(f"--- {side} Guest House (10 bedrooms) ---"))
+    gw, gd = 35, 50
+    x1, z1 = bx, 105
+    x2, z2 = bx+gw, z1+gd
+    lines.append(fill(x1,-1,z1, x2,-1,z2, "quartz_block"))
+    for fl in range(2):
+        yb = fl * FH
+        lines.append(fill(x1,yb,z1, x2,yb,z2, "dark_oak_planks"))
+        lines.append(fill(x1,yb+1,z1, x2,yb+FH,z2, "quartz_block"))
+        lines.append(fill(x1+2,yb+1,z1+2, x2-2,yb+FH-1,z2-2, "air"))
+        lines.append(fill(x1,yb+1,z1, x2,yb+1,z1, "gold_block"))
+        lines.append(fill(x1,yb+1,z2, x2,yb+1,z2, "gold_block"))
+        for z in range(z1+4, z2-4, 8):
+            lines.append(fill(x1,yb+2,z, x1,yb+FH-2,z+4, "glass"))
+            lines.append(fill(x2,yb+2,z, x2,yb+FH-2,z+4, "glass"))
+        for i in range(5):
+            bz = z1 + 3 + i * 9
+            if bz + 8 > z2 - 2: break
+            bx1 = x1 + 2
+            bw = (gw - 4) // 2
+            make_bedroom(lines, bx1, bz, yb, bw, 7,
+                ["white_wool","red_wool","blue_wool","cyan_wool","pink_wool"][i])
+            make_bedroom(lines, bx1+bw+1, bz, yb, bw, 7,
+                ["orange_wool","lime_wool","yellow_wool","purple_wool","magenta_wool"][i])
+    lines.append(fill(x1,FH*2,z1, x2,FH*2,z2, "quartz_block"))
+    lines.append(fill(x1+gw//2-2,1,z1, x1+gw//2+2,4,z1, "air"))
+    lines.append(fill(x1+gw//2-2,5,z1, x1+gw//2+2,5,z1, "gold_block"))
 
-    lines.append("function bezos_gardens")
+def gen_guesthouses():
+    # West guest house
+    lines = [comment("Phase 11a: West guest house")]
+    _build_guesthouse(lines, "West", -40)
+    lines.append("function bezos_guesthouse2")
     write_func("bezos_guesthouses", lines)
+
+def gen_guesthouse2():
+    # East guest house
+    lines = [comment("Phase 11b: East guest house")]
+    _build_guesthouse(lines, "East", 145)
+    lines.append("function bezos_gardens")
+    write_func("bezos_guesthouse2", lines)
 
 def gen_gardens():
     lines = [comment("Phase 12: Terraced gardens, fountains, greenhouses")]
@@ -838,6 +851,7 @@ if __name__ == "__main__":
     print("Generating Bezos Warner Estate Mega Mansion...")
     gen_master()
     gen_clear()
+    gen_clear2()
     gen_driveway()
     gen_exterior()
     gen_windows()
@@ -848,6 +862,7 @@ if __name__ == "__main__":
     gen_floor3()
     gen_pool()
     gen_guesthouses()
+    gen_guesthouse2()
     gen_gardens()
     gen_sports()
     gen_garage()
