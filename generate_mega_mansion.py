@@ -197,18 +197,31 @@ def gen_foyer():
     # Remove floors for triple height
     lines.append(fill(53,FH,63, 87,FH,85, "air"))
     lines.append(fill(53,FH*2,63, 87,FH*2,85, "air"))
+    # CUT STAIR HOLES in floors so stairs actually connect
+    lines.append(fill(53,FH,86, 59,FH,98, "air"))
+    lines.append(fill(81,FH,86, 87,FH,98, "air"))
+    lines.append(fill(53,FH*2,86, 59,FH*2,98, "air"))
+    lines.append(fill(81,FH*2,86, 87,FH*2,98, "air"))
     # Gold + lapis inlay floor
     lines.append(fill(54,0,63, 86,0,85, "quartz_block"))
     lines.append(fill(58,0,67, 82,0,81, "gold_block"))
     lines.append(fill(62,0,70, 78,0,78, "lapis_block"))
     lines.append(fill(66,0,72, 74,0,76, "diamond_block"))
-    # Dual grand staircases
+    # Dual grand staircases (left)
     for i in range(8):
         lines.append(fill(54,i+1,80+i, 58,i+1,81+i, "quartz_block"))
+        lines.append(fill(54,i+2,80+i, 58,FH*3-1,81+i, "air"))  # clear above
+    # Dual grand staircases (right)
+    for i in range(8):
         lines.append(fill(82,i+1,80+i, 86,i+1,81+i, "quartz_block"))
+        lines.append(fill(82,i+2,80+i, 86,FH*3-1,81+i, "air"))  # clear above
+    # Second flight to floor 3
     for i in range(8):
         lines.append(fill(54,9+i,88+i, 58,9+i,89+i, "quartz_block"))
+        lines.append(fill(54,10+i,88+i, 58,FH*3-1,89+i, "air"))
+    for i in range(8):
         lines.append(fill(82,9+i,88+i, 86,9+i,89+i, "quartz_block"))
+        lines.append(fill(82,10+i,88+i, 86,FH*3-1,89+i, "air"))
     # Gold stair railings
     for i in range(8):
         lines.append(sb(54,i+2,80+i, "gold_block"))
@@ -374,21 +387,35 @@ def gen_east_wing():
     write_func("bezos_east_wing", lines)
 
 def make_bedroom(lines, x1, z1, y_base, width=10, depth=8, carpet="white_wool", gold_headboard=True):
-    """Generate one luxury bedroom"""
+    """Generate one fully furnished luxury bedroom"""
     x2, z2 = x1+width, z1+depth
     lines.append(fill(x1,y_base,z1, x2,y_base+FH,z2, "quartz_block"))
     lines.append(fill(x1+1,y_base+1,z1+1, x2-1,y_base+FH-1,z2-1, "air"))
     lines.append(fill(x1+1,y_base,z1+1, x2-1,y_base,z2-1, carpet))
-    # Bed
+    # Bed (king size with gold headboard)
     bx = x1 + width//2 - 1
-    lines.append(fill(bx,y_base+1,z2-2, bx+2,y_base+1,z2-1, "white_wool"))
+    lines.append(fill(bx,y_base+1,z2-3, bx+2,y_base+1,z2-2, "white_wool"))
     if gold_headboard:
         lines.append(fill(bx,y_base+1,z2-1, bx+2,y_base+2,z2-1, "gold_block"))
+        lines.append(fill(bx,y_base+1,z2-2, bx+2,y_base+1,z2-2, "red_wool"))  # bedspread
+    # Nightstands (both sides of bed)
+    lines.append(sb(bx-1,y_base+1,z2-2, "dark_oak_planks"))
+    lines.append(sb(bx+3,y_base+1,z2-2, "dark_oak_planks"))
+    lines.append(sb(bx-1,y_base+2,z2-2, "sea_lantern"))  # bedside lamp
+    lines.append(sb(bx+3,y_base+2,z2-2, "sea_lantern"))  # bedside lamp
+    # Dresser against side wall
+    lines.append(fill(x2-2,y_base+1,z1+2, x2-2,y_base+1,z1+4, "dark_oak_planks"))
+    lines.append(fill(x2-2,y_base+2,z1+2, x2-2,y_base+2,z1+4, "dark_oak_planks"))
+    # Armchair
+    lines.append(sb(x1+2,y_base+1,z1+2, "spruce_planks"))
+    # Rug
+    lines.append(fill(bx-1,y_base,z2-4, bx+3,y_base,z2-3, carpet))
     # Window
     lines.append(fill(x1+3,y_base+2,z1, x1+width-3,y_base+FH-3,z1, "glass"))
-    # Light
+    # Chandelier
     lines.append(sb(x1+width//2, y_base+FH-1, z1+depth//2, "glowstone"))
-    # Door opening
+    lines.append(sb(x1+width//2, y_base+FH, z1+depth//2, "gold_block"))
+    # Door opening with gold frame
     lines.append(fill(x1,y_base+1,z1+depth//2, x1,y_base+3,z1+depth//2+1, "air"))
     lines.append(fill(x1,y_base+4,z1+depth//2, x1,y_base+4,z1+depth//2+1, "gold_block"))
 
@@ -485,35 +512,39 @@ def gen_pool():
     # Pool deck
     lines.append(fill(25,0,105, 115,0,150, "quartz_block"))
     lines.append(fill(25,-1,105, 115,-1,150, "quartz_block"))
-    # Deep pool - BUILD WALLS FIRST to contain water
-    lines.append(fill(34,-5,109, 106,1,141, "light_blue_concrete"))  # full basin shell
-    lines.append(fill(35,-4,110, 105,0,140, "air"))  # hollow inside
-    # Gold pool edge (1 block ABOVE water surface)
-    lines.append(fill(34,1,109, 106,1,109, "gold_block"))
-    lines.append(fill(34,1,141, 106,1,141, "gold_block"))
-    lines.append(fill(34,1,110, 34,1,140, "gold_block"))
-    lines.append(fill(106,1,110, 106,1,140, "gold_block"))
+    # Deep pool - dig hole, line with prismarine tiles, fill with water
+    # Step 1: Dig the pool basin
+    lines.append(fill(35,-5,110, 105,0,140, "air"))
+    # Step 2: Line bottom and sides with prismarine (pool tiles)
+    lines.append(fill(35,-5,110, 105,-5,140, "prismarine"))  # floor
+    lines.append(fill(34,-5,109, 106,-1,109, "prismarine"))  # south wall
+    lines.append(fill(34,-5,141, 106,-1,141, "prismarine"))  # north wall
+    lines.append(fill(34,-5,110, 34,-1,140, "prismarine"))   # west wall
+    lines.append(fill(106,-5,110, 106,-1,140, "prismarine")) # east wall
+    # Step 3: Gold edge at surface level (Y=0, one above water top at Y=-1)
     lines.append(fill(34,0,109, 106,0,109, "gold_block"))
     lines.append(fill(34,0,141, 106,0,141, "gold_block"))
     lines.append(fill(34,0,110, 34,0,140, "gold_block"))
     lines.append(fill(106,0,110, 106,0,140, "gold_block"))
-    # Underwater lighting (placed before water)
+    # Step 4: Underwater lighting
     for x in range(40, 105, 10):
         for z in range(115, 140, 10):
             lines.append(sb(x,-5,z, "sea_lantern"))
-    # NOW fill water (contained by walls)
+    # Step 5: Fill with water (surface at Y=-1, contained by gold at Y=0)
     lines.append(fill(35,-4,110, 105,-4,140, "water"))
     lines.append(fill(35,-3,110, 105,-3,140, "water"))
     lines.append(fill(35,-2,110, 105,-2,140, "water"))
     lines.append(fill(35,-1,110, 105,-1,140, "water"))
-    lines.append(fill(35,0,110, 105,0,140, "water"))
-    # Hot tubs (2) - walls first, then water
+    # Hot tubs (2) - dig, line, fill
     for hx in [28, 110]:
-        lines.append(fill(hx,-2,120, hx+5,1,126, "prismarine"))  # full shell
-        lines.append(fill(hx+1,-1,121, hx+4,0,125, "air"))  # hollow
+        lines.append(fill(hx,-2,120, hx+5,0,126, "air"))  # dig
+        lines.append(fill(hx,-2,120, hx+5,-2,126, "prismarine"))  # floor
+        lines.append(fill(hx,-2,119, hx+5,0,119, "prismarine"))  # walls
+        lines.append(fill(hx,-2,127, hx+5,0,127, "prismarine"))
+        lines.append(fill(hx-1,-2,120, hx-1,0,126, "prismarine"))
+        lines.append(fill(hx+6,-2,120, hx+6,0,126, "prismarine"))
         lines.append(sb(hx+2,-2,123, "sea_lantern"))
-        lines.append(fill(hx+1,-1,121, hx+4,-1,125, "water"))
-        lines.append(fill(hx+1,0,121, hx+4,0,125, "water"))
+        lines.append(fill(hx,-1,120, hx+5,-1,126, "water"))
     # Pool pavilion (8 columns)
     lines.append(fill(40,0,143, 100,0,158, "quartz_block"))
     lines.append(fill(40,8,143, 100,8,158, "quartz_block"))
@@ -522,10 +553,12 @@ def gen_pool():
         lines.append(sb(cx,7,143, "gold_block"))
         lines.append(sb(cx+1,7,143, "gold_block"))
     lines.append(fill(45,1,143, 95,5,143, "air"))  # open front
-    # Pavilion bar + lounge
-    lines.append(fill(50,1,150, 50,2,156, "dark_oak_planks"))
-    lines.append(fill(60,1,148, 80,1,148, "spruce_planks"))
+    # Pavilion lounge furniture
+    lines.append(fill(50,1,150, 50,2,156, "dark_oak_planks"))  # bar
+    lines.append(fill(52,1,150, 52,1,156, "spruce_planks"))  # stools
+    lines.append(fill(60,1,148, 80,1,148, "spruce_planks"))  # sofas
     lines.append(fill(60,1,155, 80,1,155, "spruce_planks"))
+    lines.append(fill(62,1,150, 78,1,150, "dark_oak_planks"))  # coffee table
     lines.append(sb(70,7,150, "glowstone"))
 
     lines.append("function bezos_guesthouses")
