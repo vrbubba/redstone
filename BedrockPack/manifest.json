@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Redstone Launcher Behavior Pack",
+    "description": "Adds commands to launch flying machines",
+    "uuid": "42ce3553-6ec2-4211-96d5-a7732d84784a",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 16, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "72ce3553-6ec2-4211-96d5-a7732d84784b",
+      "version": [1, 0, 0]
+    }
+  ]
+}
