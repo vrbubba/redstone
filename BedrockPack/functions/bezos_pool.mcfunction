@@ -1,14 +1,36 @@
 # Phase 10: Deep infinity pool, hot tubs, pavilion
-fill ~25 ~0 ~105 ~115 ~0 ~150 quartz_block
-fill ~25 ~-1 ~105 ~115 ~-1 ~150 quartz_block
-fill ~35 ~-5 ~110 ~105 ~0 ~140 air
-fill ~35 ~-5 ~110 ~105 ~-5 ~140 prismarine
-fill ~34 ~-5 ~109 ~106 ~-1 ~109 prismarine
-fill ~34 ~-5 ~141 ~106 ~-1 ~141 prismarine
+fill ~25 ~0 ~105 ~55 ~0 ~135 quartz_block
+fill ~25 ~0 ~136 ~55 ~0 ~150 quartz_block
+fill ~56 ~0 ~105 ~86 ~0 ~135 quartz_block
+fill ~56 ~0 ~136 ~86 ~0 ~150 quartz_block
+fill ~87 ~0 ~105 ~115 ~0 ~135 quartz_block
+fill ~87 ~0 ~136 ~115 ~0 ~150 quartz_block
+fill ~25 ~-1 ~105 ~55 ~-1 ~135 quartz_block
+fill ~25 ~-1 ~136 ~55 ~-1 ~150 quartz_block
+fill ~56 ~-1 ~105 ~86 ~-1 ~135 quartz_block
+fill ~56 ~-1 ~136 ~86 ~-1 ~150 quartz_block
+fill ~87 ~-1 ~105 ~115 ~-1 ~135 quartz_block
+fill ~87 ~-1 ~136 ~115 ~-1 ~150 quartz_block
+fill ~35 ~-5 ~110 ~65 ~0 ~140 air
+fill ~66 ~-5 ~110 ~96 ~0 ~140 air
+fill ~97 ~-5 ~110 ~105 ~0 ~140 air
+fill ~35 ~-5 ~110 ~65 ~-5 ~140 prismarine
+fill ~66 ~-5 ~110 ~96 ~-5 ~140 prismarine
+fill ~97 ~-5 ~110 ~105 ~-5 ~140 prismarine
+fill ~34 ~-5 ~109 ~64 ~-1 ~109 prismarine
+fill ~65 ~-5 ~109 ~95 ~-1 ~109 prismarine
+fill ~96 ~-5 ~109 ~106 ~-1 ~109 prismarine
+fill ~34 ~-5 ~141 ~64 ~-1 ~141 prismarine
+fill ~65 ~-5 ~141 ~95 ~-1 ~141 prismarine
+fill ~96 ~-5 ~141 ~106 ~-1 ~141 prismarine
 fill ~34 ~-5 ~110 ~34 ~-1 ~140 prismarine
 fill ~106 ~-5 ~110 ~106 ~-1 ~140 prismarine
-fill ~34 ~0 ~109 ~106 ~0 ~109 gold_block
-fill ~34 ~0 ~141 ~106 ~0 ~141 gold_block
+fill ~34 ~0 ~109 ~64 ~0 ~109 gold_block
+fill ~65 ~0 ~109 ~95 ~0 ~109 gold_block
+fill ~96 ~0 ~109 ~106 ~0 ~109 gold_block
+fill ~34 ~0 ~141 ~64 ~0 ~141 gold_block
+fill ~65 ~0 ~141 ~95 ~0 ~141 gold_block
+fill ~96 ~0 ~141 ~106 ~0 ~141 gold_block
 fill ~34 ~0 ~110 ~34 ~0 ~140 gold_block
 fill ~106 ~0 ~110 ~106 ~0 ~140 gold_block
 setblock ~40 ~-5 ~115 sea_lantern
@@ -32,10 +54,18 @@ setblock ~90 ~-5 ~135 sea_lantern
 setblock ~100 ~-5 ~115 sea_lantern
 setblock ~100 ~-5 ~125 sea_lantern
 setblock ~100 ~-5 ~135 sea_lantern
-fill ~35 ~-4 ~110 ~105 ~-4 ~140 water
-fill ~35 ~-3 ~110 ~105 ~-3 ~140 water
-fill ~35 ~-2 ~110 ~105 ~-2 ~140 water
-fill ~35 ~-1 ~110 ~105 ~-1 ~140 water
+fill ~35 ~-4 ~110 ~65 ~-4 ~140 water
+fill ~66 ~-4 ~110 ~96 ~-4 ~140 water
+fill ~97 ~-4 ~110 ~105 ~-4 ~140 water
+fill ~35 ~-3 ~110 ~65 ~-3 ~140 water
+fill ~66 ~-3 ~110 ~96 ~-3 ~140 water
+fill ~97 ~-3 ~110 ~105 ~-3 ~140 water
+fill ~35 ~-2 ~110 ~65 ~-2 ~140 water
+fill ~66 ~-2 ~110 ~96 ~-2 ~140 water
+fill ~97 ~-2 ~110 ~105 ~-2 ~140 water
+fill ~35 ~-1 ~110 ~65 ~-1 ~140 water
+fill ~66 ~-1 ~110 ~96 ~-1 ~140 water
+fill ~97 ~-1 ~110 ~105 ~-1 ~140 water
 fill ~28 ~-2 ~120 ~33 ~0 ~126 air
 fill ~28 ~-2 ~120 ~33 ~-2 ~126 prismarine
 fill ~28 ~-2 ~119 ~33 ~0 ~119 prismarine
@@ -52,11 +82,16 @@ fill ~109 ~-2 ~120 ~109 ~0 ~126 prismarine
 fill ~116 ~-2 ~120 ~116 ~0 ~126 prismarine
 setblock ~112 ~-2 ~123 sea_lantern
 fill ~110 ~-1 ~120 ~115 ~-1 ~126 water
-fill ~40 ~0 ~143 ~100 ~0 ~158 quartz_block
-fill ~40 ~8 ~143 ~100 ~8 ~158 quartz_block
-fill ~40 ~1 ~143 ~100 ~7 ~158 quartz_block
-fill ~41 ~1 ~144 ~99 ~7 ~157 air
-fill ~41 ~1 ~143 ~99 ~7 ~143 air
+fill ~40 ~0 ~143 ~70 ~0 ~158 quartz_block
+fill ~71 ~0 ~143 ~100 ~0 ~158 quartz_block
+fill ~40 ~8 ~143 ~70 ~8 ~158 quartz_block
+fill ~71 ~8 ~143 ~100 ~8 ~158 quartz_block
+fill ~40 ~1 ~143 ~70 ~7 ~158 quartz_block
+fill ~71 ~1 ~143 ~100 ~7 ~158 quartz_block
+fill ~41 ~1 ~144 ~71 ~7 ~157 air
+fill ~72 ~1 ~144 ~99 ~7 ~157 air
+fill ~41 ~1 ~143 ~71 ~7 ~143 air
+fill ~72 ~1 ~143 ~99 ~7 ~143 air
 fill ~43 ~1 ~143 ~44 ~7 ~143 quartz_block
 setblock ~43 ~7 ~143 gold_block
 setblock ~44 ~7 ~143 gold_block
@@ -81,7 +116,8 @@ setblock ~86 ~7 ~143 gold_block
 fill ~92 ~1 ~143 ~93 ~7 ~143 quartz_block
 setblock ~92 ~7 ~143 gold_block
 setblock ~93 ~7 ~143 gold_block
-fill ~45 ~1 ~143 ~95 ~5 ~143 air
+fill ~45 ~1 ~143 ~75 ~5 ~143 air
+fill ~76 ~1 ~143 ~95 ~5 ~143 air
 fill ~50 ~1 ~150 ~50 ~2 ~156 dark_oak_planks
 fill ~52 ~1 ~150 ~52 ~1 ~156 spruce_planks
 fill ~60 ~1 ~148 ~80 ~1 ~148 spruce_planks

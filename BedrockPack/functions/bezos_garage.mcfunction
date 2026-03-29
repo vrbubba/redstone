@@ -1,7 +1,10 @@
 # Phase 14: Underground garage + spaceship sauna
-fill ~45 ~-6 ~30 ~95 ~-1 ~55 stone_bricks
-fill ~47 ~-5 ~32 ~93 ~-2 ~53 air
-fill ~47 ~-5 ~32 ~93 ~-5 ~53 polished_deepslate
+fill ~45 ~-6 ~30 ~75 ~-1 ~55 stone_bricks
+fill ~76 ~-6 ~30 ~95 ~-1 ~55 stone_bricks
+fill ~47 ~-5 ~32 ~77 ~-2 ~53 air
+fill ~78 ~-5 ~32 ~93 ~-2 ~53 air
+fill ~47 ~-5 ~32 ~77 ~-5 ~53 polished_deepslate
+fill ~78 ~-5 ~32 ~93 ~-5 ~53 polished_deepslate
 fill ~50 ~-5 ~33 ~50 ~-5 ~40 white_concrete
 fill ~50 ~-5 ~45 ~50 ~-5 ~52 white_concrete
 fill ~55 ~-5 ~33 ~55 ~-5 ~40 white_concrete

@@ -1,12 +1,24 @@
 # Phase 13: Tennis court, golf course, helipad
-fill ~150 ~-1 ~30 ~190 ~-1 ~65 green_concrete
-fill ~150 ~0 ~30 ~190 ~0 ~65 green_concrete
-fill ~151 ~0 ~30 ~189 ~0 ~30 white_concrete
-fill ~151 ~0 ~65 ~189 ~0 ~65 white_concrete
-fill ~150 ~0 ~31 ~150 ~0 ~64 white_concrete
-fill ~190 ~0 ~31 ~190 ~0 ~64 white_concrete
-fill ~170 ~0 ~31 ~170 ~0 ~64 white_concrete
-fill ~170 ~1 ~31 ~170 ~2 ~64 cobblestone_wall
+fill ~150 ~-1 ~30 ~180 ~-1 ~60 green_concrete
+fill ~150 ~-1 ~61 ~180 ~-1 ~65 green_concrete
+fill ~181 ~-1 ~30 ~190 ~-1 ~60 green_concrete
+fill ~181 ~-1 ~61 ~190 ~-1 ~65 green_concrete
+fill ~150 ~0 ~30 ~180 ~0 ~60 green_concrete
+fill ~150 ~0 ~61 ~180 ~0 ~65 green_concrete
+fill ~181 ~0 ~30 ~190 ~0 ~60 green_concrete
+fill ~181 ~0 ~61 ~190 ~0 ~65 green_concrete
+fill ~151 ~0 ~30 ~181 ~0 ~30 white_concrete
+fill ~182 ~0 ~30 ~189 ~0 ~30 white_concrete
+fill ~151 ~0 ~65 ~181 ~0 ~65 white_concrete
+fill ~182 ~0 ~65 ~189 ~0 ~65 white_concrete
+fill ~150 ~0 ~31 ~150 ~0 ~61 white_concrete
+fill ~150 ~0 ~62 ~150 ~0 ~64 white_concrete
+fill ~190 ~0 ~31 ~190 ~0 ~61 white_concrete
+fill ~190 ~0 ~62 ~190 ~0 ~64 white_concrete
+fill ~170 ~0 ~31 ~170 ~0 ~61 white_concrete
+fill ~170 ~0 ~62 ~170 ~0 ~64 white_concrete
+fill ~170 ~1 ~31 ~170 ~2 ~61 cobblestone_wall
+fill ~170 ~1 ~62 ~170 ~2 ~64 cobblestone_wall
 fill ~148 ~0 ~40 ~148 ~3 ~55 quartz_block
 fill ~148 ~3 ~40 ~148 ~3 ~55 spruce_planks
 fill ~160 ~0 ~80 ~180 ~0 ~100 gray_concrete
@@ -18,7 +30,18 @@ setblock ~161 ~1 ~81 sea_lantern
 setblock ~161 ~1 ~99 sea_lantern
 setblock ~179 ~1 ~81 sea_lantern
 setblock ~179 ~1 ~99 sea_lantern
-fill ~-40 ~-1 ~140 ~30 ~0 ~250 grass_block
+fill ~-40 ~-1 ~140 ~-10 ~0 ~170 grass_block
+fill ~-40 ~-1 ~171 ~-10 ~0 ~201 grass_block
+fill ~-40 ~-1 ~202 ~-10 ~0 ~232 grass_block
+fill ~-40 ~-1 ~233 ~-10 ~0 ~250 grass_block
+fill ~-9 ~-1 ~140 ~21 ~0 ~170 grass_block
+fill ~-9 ~-1 ~171 ~21 ~0 ~201 grass_block
+fill ~-9 ~-1 ~202 ~21 ~0 ~232 grass_block
+fill ~-9 ~-1 ~233 ~21 ~0 ~250 grass_block
+fill ~22 ~-1 ~140 ~30 ~0 ~170 grass_block
+fill ~22 ~-1 ~171 ~30 ~0 ~201 grass_block
+fill ~22 ~-1 ~202 ~30 ~0 ~232 grass_block
+fill ~22 ~-1 ~233 ~30 ~0 ~250 grass_block
 fill ~-30 ~0 ~150 ~-20 ~0 ~158 lime_concrete
 setblock ~-25 ~1 ~154 white_wool
 setblock ~-25 ~2 ~154 white_wool

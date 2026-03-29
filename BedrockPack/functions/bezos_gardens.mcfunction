@@ -1,6 +1,12 @@
 # Phase 12: Terraced gardens, fountains, greenhouses
-fill ~20 ~0 ~100 ~120 ~0 ~105 stone_bricks
-fill ~22 ~0 ~101 ~118 ~0 ~104 grass_block
+fill ~20 ~0 ~100 ~50 ~0 ~105 stone_bricks
+fill ~51 ~0 ~100 ~81 ~0 ~105 stone_bricks
+fill ~82 ~0 ~100 ~112 ~0 ~105 stone_bricks
+fill ~113 ~0 ~100 ~120 ~0 ~105 stone_bricks
+fill ~22 ~0 ~101 ~52 ~0 ~104 grass_block
+fill ~53 ~0 ~101 ~83 ~0 ~104 grass_block
+fill ~84 ~0 ~101 ~114 ~0 ~104 grass_block
+fill ~115 ~0 ~101 ~118 ~0 ~104 grass_block
 setblock ~25 ~1 ~101 red_flower
 setblock ~31 ~1 ~101 yellow_flower
 setblock ~37 ~1 ~101 red_flower
@@ -16,8 +22,14 @@ setblock ~91 ~1 ~101 yellow_flower
 setblock ~97 ~1 ~101 red_flower
 setblock ~103 ~1 ~101 yellow_flower
 setblock ~109 ~1 ~101 red_flower
-fill ~20 ~1 ~105 ~120 ~1 ~108 stone_bricks
-fill ~22 ~1 ~106 ~118 ~1 ~107 grass_block
+fill ~20 ~1 ~105 ~50 ~1 ~108 stone_bricks
+fill ~51 ~1 ~105 ~81 ~1 ~108 stone_bricks
+fill ~82 ~1 ~105 ~112 ~1 ~108 stone_bricks
+fill ~113 ~1 ~105 ~120 ~1 ~108 stone_bricks
+fill ~22 ~1 ~106 ~52 ~1 ~107 grass_block
+fill ~53 ~1 ~106 ~83 ~1 ~107 grass_block
+fill ~84 ~1 ~106 ~114 ~1 ~107 grass_block
+fill ~115 ~1 ~106 ~118 ~1 ~107 grass_block
 setblock ~25 ~2 ~106 red_flower
 setblock ~31 ~2 ~106 yellow_flower
 setblock ~37 ~2 ~106 red_flower
@@ -33,8 +45,14 @@ setblock ~91 ~2 ~106 yellow_flower
 setblock ~97 ~2 ~106 red_flower
 setblock ~103 ~2 ~106 yellow_flower
 setblock ~109 ~2 ~106 red_flower
-fill ~20 ~2 ~108 ~120 ~2 ~111 stone_bricks
-fill ~22 ~2 ~109 ~118 ~2 ~110 grass_block
+fill ~20 ~2 ~108 ~50 ~2 ~111 stone_bricks
+fill ~51 ~2 ~108 ~81 ~2 ~111 stone_bricks
+fill ~82 ~2 ~108 ~112 ~2 ~111 stone_bricks
+fill ~113 ~2 ~108 ~120 ~2 ~111 stone_bricks
+fill ~22 ~2 ~109 ~52 ~2 ~110 grass_block
+fill ~53 ~2 ~109 ~83 ~2 ~110 grass_block
+fill ~84 ~2 ~109 ~114 ~2 ~110 grass_block
+fill ~115 ~2 ~109 ~118 ~2 ~110 grass_block
 setblock ~25 ~3 ~109 red_flower
 setblock ~31 ~3 ~109 yellow_flower
 setblock ~37 ~3 ~109 red_flower

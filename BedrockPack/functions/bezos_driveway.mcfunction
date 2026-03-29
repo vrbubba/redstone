@@ -81,8 +81,10 @@ fill ~65 ~-1 ~24 ~75 ~-1 ~24 polished_deepslate
 fill ~65 ~0 ~24 ~75 ~0 ~24 polished_deepslate
 fill ~65 ~-1 ~25 ~75 ~-1 ~25 polished_deepslate
 fill ~65 ~0 ~25 ~75 ~0 ~25 polished_deepslate
-fill ~40 ~0 ~22 ~100 ~0 ~38 polished_deepslate
-fill ~40 ~-1 ~22 ~100 ~-1 ~38 polished_deepslate
+fill ~40 ~0 ~22 ~70 ~0 ~38 polished_deepslate
+fill ~71 ~0 ~22 ~100 ~0 ~38 polished_deepslate
+fill ~40 ~-1 ~22 ~70 ~-1 ~38 polished_deepslate
+fill ~71 ~-1 ~22 ~100 ~-1 ~38 polished_deepslate
 fill ~63 ~1 ~27 ~77 ~1 ~33 quartz_block
 fill ~65 ~2 ~28 ~75 ~2 ~32 prismarine
 fill ~67 ~3 ~29 ~73 ~3 ~31 prismarine
@@ -104,8 +106,10 @@ fill ~62 ~1 ~14 ~62 ~6 ~14 oak_log
 fill ~60 ~6 ~12 ~64 ~9 ~16 leaves
 fill ~78 ~1 ~14 ~78 ~6 ~14 oak_log
 fill ~76 ~6 ~12 ~80 ~9 ~16 leaves
-fill ~20 ~0 ~20 ~55 ~0 ~22 grass_block
-fill ~85 ~0 ~20 ~120 ~0 ~22 grass_block
+fill ~20 ~0 ~20 ~50 ~0 ~22 grass_block
+fill ~51 ~0 ~20 ~55 ~0 ~22 grass_block
+fill ~85 ~0 ~20 ~115 ~0 ~22 grass_block
+fill ~116 ~0 ~20 ~120 ~0 ~22 grass_block
 setblock ~22 ~1 ~21 yellow_flower
 setblock ~26 ~1 ~21 red_flower
 setblock ~30 ~1 ~21 yellow_flower
@@ -129,9 +133,41 @@ fill ~76 ~1 ~-18 ~79 ~8 ~-18 stone_bricks
 setblock ~62 ~9 ~-18 sea_lantern
 setblock ~77 ~9 ~-18 sea_lantern
 fill ~65 ~1 ~-18 ~75 ~5 ~-18 iron_bars
-fill ~-50 ~1 ~-20 ~60 ~5 ~-20 leaves
-fill ~80 ~1 ~-20 ~200 ~5 ~-20 leaves
-fill ~-50 ~1 ~-20 ~-50 ~5 ~260 leaves
-fill ~200 ~1 ~-20 ~200 ~5 ~260 leaves
-fill ~-50 ~1 ~260 ~200 ~5 ~260 leaves
+fill ~-50 ~1 ~-20 ~-20 ~5 ~-20 leaves
+fill ~-19 ~1 ~-20 ~11 ~5 ~-20 leaves
+fill ~12 ~1 ~-20 ~42 ~5 ~-20 leaves
+fill ~43 ~1 ~-20 ~60 ~5 ~-20 leaves
+fill ~80 ~1 ~-20 ~110 ~5 ~-20 leaves
+fill ~111 ~1 ~-20 ~141 ~5 ~-20 leaves
+fill ~142 ~1 ~-20 ~172 ~5 ~-20 leaves
+fill ~173 ~1 ~-20 ~200 ~5 ~-20 leaves
+fill ~-50 ~1 ~-20 ~-50 ~5 ~10 leaves
+fill ~-50 ~1 ~11 ~-50 ~5 ~41 leaves
+fill ~-50 ~1 ~42 ~-50 ~5 ~72 leaves
+fill ~-50 ~1 ~73 ~-50 ~5 ~103 leaves
+fill ~-50 ~1 ~104 ~-50 ~5 ~134 leaves
+fill ~-50 ~1 ~135 ~-50 ~5 ~165 leaves
+fill ~-50 ~1 ~166 ~-50 ~5 ~196 leaves
+fill ~-50 ~1 ~197 ~-50 ~5 ~227 leaves
+fill ~-50 ~1 ~228 ~-50 ~5 ~258 leaves
+fill ~-50 ~1 ~259 ~-50 ~5 ~260 leaves
+fill ~200 ~1 ~-20 ~200 ~5 ~10 leaves
+fill ~200 ~1 ~11 ~200 ~5 ~41 leaves
+fill ~200 ~1 ~42 ~200 ~5 ~72 leaves
+fill ~200 ~1 ~73 ~200 ~5 ~103 leaves
+fill ~200 ~1 ~104 ~200 ~5 ~134 leaves
+fill ~200 ~1 ~135 ~200 ~5 ~165 leaves
+fill ~200 ~1 ~166 ~200 ~5 ~196 leaves
+fill ~200 ~1 ~197 ~200 ~5 ~227 leaves
+fill ~200 ~1 ~228 ~200 ~5 ~258 leaves
+fill ~200 ~1 ~259 ~200 ~5 ~260 leaves
+fill ~-50 ~1 ~260 ~-20 ~5 ~260 leaves
+fill ~-19 ~1 ~260 ~11 ~5 ~260 leaves
+fill ~12 ~1 ~260 ~42 ~5 ~260 leaves
+fill ~43 ~1 ~260 ~73 ~5 ~260 leaves
+fill ~74 ~1 ~260 ~104 ~5 ~260 leaves
+fill ~105 ~1 ~260 ~135 ~5 ~260 leaves
+fill ~136 ~1 ~260 ~166 ~5 ~260 leaves
+fill ~167 ~1 ~260 ~197 ~5 ~260 leaves
+fill ~198 ~1 ~260 ~200 ~5 ~260 leaves
 function bezos_exterior

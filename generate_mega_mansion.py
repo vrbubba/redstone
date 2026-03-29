@@ -13,8 +13,21 @@ def write_func(name, lines):
             f.write(line + "\n")
     print(f"  Wrote {name}.mcfunction ({len(lines)} commands)")
 
-def fill(x1,y1,z1,x2,y2,z2,block):
-    return f"fill ~{x1} ~{y1} ~{z1} ~{x2} ~{y2} ~{z2} {block}"
+def fill(x_start, y_start, z_start, x_end, y_end, z_end, block):
+    x1, x2 = min(x_start, x_end), max(x_start, x_end)
+    y1, y2 = min(y_start, y_end), max(y_start, y_end)
+    z1, z2 = min(z_start, z_end), max(z_start, z_end)
+    
+    commands = []
+    STEP = 31
+    for cx in range(x1, x2 + 1, STEP):
+        for cy in range(y1, y2 + 1, STEP):
+            for cz in range(z1, z2 + 1, STEP):
+                ex = min(cx + STEP - 1, x2)
+                ey = min(cy + STEP - 1, y2)
+                ez = min(cz + STEP - 1, z2)
+                commands.append(f"fill ~{cx} ~{cy} ~{cz} ~{ex} ~{ey} ~{ez} {block}")
+    return "\n".join(commands)
 
 def sb(x,y,z,block):
     return f"setblock ~{x} ~{y} ~{z} {block}"

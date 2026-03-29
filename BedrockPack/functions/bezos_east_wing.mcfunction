@@ -1,6 +1,7 @@
 # Phase 7: East wing - Dining, Screening, Bar, Billiard, Kitchen, Wine Cellar, Spa
 # --- Formal Dining Room (seats 24) ---
-fill ~90 ~0 ~62 ~138 ~0 ~78 dark_oak_planks
+fill ~90 ~0 ~62 ~120 ~0 ~78 dark_oak_planks
+fill ~121 ~0 ~62 ~138 ~0 ~78 dark_oak_planks
 fill ~100 ~1 ~68 ~128 ~1 ~72 dark_oak_planks
 setblock ~101 ~1 ~67 spruce_planks
 setblock ~101 ~1 ~73 spruce_planks
@@ -39,9 +40,12 @@ setblock ~123 ~7 ~70 glowstone
 setblock ~122 ~7 ~69 glowstone
 setblock ~122 ~7 ~71 glowstone
 # --- Private Screening Room (20 seats) ---
-fill ~107 ~0 ~27 ~138 ~0 ~45 black_wool
-fill ~107 ~1 ~27 ~138 ~8 ~27 black_concrete
-fill ~107 ~1 ~45 ~138 ~8 ~45 black_concrete
+fill ~107 ~0 ~27 ~137 ~0 ~45 black_wool
+fill ~138 ~0 ~27 ~138 ~0 ~45 black_wool
+fill ~107 ~1 ~27 ~137 ~8 ~27 black_concrete
+fill ~138 ~1 ~27 ~138 ~8 ~27 black_concrete
+fill ~107 ~1 ~45 ~137 ~8 ~45 black_concrete
+fill ~138 ~1 ~45 ~138 ~8 ~45 black_concrete
 fill ~138 ~1 ~28 ~138 ~8 ~44 black_concrete
 fill ~109 ~2 ~45 ~136 ~6 ~45 white_concrete
 fill ~112 ~1 ~32 ~134 ~1 ~32 quartz_block
@@ -51,18 +55,22 @@ fill ~112 ~3 ~36 ~134 ~3 ~36 spruce_planks
 fill ~112 ~1 ~40 ~134 ~3 ~40 quartz_block
 fill ~112 ~4 ~40 ~134 ~4 ~40 spruce_planks
 # --- Wine Cellar ---
-fill ~90 ~-5 ~80 ~130 ~-1 ~98 stone_bricks
-fill ~92 ~-4 ~82 ~128 ~-2 ~96 air
+fill ~90 ~-5 ~80 ~120 ~-1 ~98 stone_bricks
+fill ~121 ~-5 ~80 ~130 ~-1 ~98 stone_bricks
+fill ~92 ~-4 ~82 ~122 ~-2 ~96 air
+fill ~123 ~-4 ~82 ~128 ~-2 ~96 air
 fill ~92 ~-4 ~82 ~92 ~-2 ~96 barrel
 fill ~128 ~-4 ~82 ~128 ~-2 ~96 barrel
-fill ~93 ~-5 ~82 ~127 ~-5 ~96 prismarine
+fill ~93 ~-5 ~82 ~123 ~-5 ~96 prismarine
+fill ~124 ~-5 ~82 ~127 ~-5 ~96 prismarine
 fill ~108 ~-1 ~62 ~112 ~-1 ~63 quartz_block
 fill ~108 ~-2 ~64 ~112 ~-2 ~65 quartz_block
 fill ~108 ~-3 ~66 ~112 ~-3 ~67 quartz_block
 fill ~108 ~-4 ~68 ~112 ~-4 ~69 quartz_block
 fill ~108 ~-5 ~70 ~112 ~-5 ~71 quartz_block
 # --- Domed Bar ---
-fill ~107 ~0 ~47 ~138 ~0 ~58 dark_oak_planks
+fill ~107 ~0 ~47 ~137 ~0 ~58 dark_oak_planks
+fill ~138 ~0 ~47 ~138 ~0 ~58 dark_oak_planks
 fill ~110 ~1 ~50 ~110 ~2 ~56 dark_oak_planks
 fill ~109 ~1 ~50 ~109 ~5 ~56 spruce_planks
 fill ~109 ~3 ~51 ~109 ~3 ~55 glowstone
@@ -73,7 +81,8 @@ fill ~90 ~0 ~80 ~105 ~0 ~98 dark_oak_planks
 fill ~94 ~1 ~85 ~101 ~1 ~93 emerald_block
 setblock ~97 ~7 ~89 glowstone
 # --- Luxury Spa ---
-fill ~107 ~0 ~80 ~138 ~0 ~98 quartz_block
+fill ~107 ~0 ~80 ~137 ~0 ~98 quartz_block
+fill ~138 ~0 ~80 ~138 ~0 ~98 quartz_block
 fill ~110 ~0 ~84 ~120 ~0 ~90 amethyst_block
 fill ~124 ~-1 ~83 ~136 ~1 ~91 prismarine
 fill ~125 ~-1 ~84 ~135 ~-1 ~90 prismarine

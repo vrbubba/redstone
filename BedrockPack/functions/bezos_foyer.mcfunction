@@ -1,15 +1,20 @@
 # Phase 5: Grand foyer - triple height, dual staircases
-fill ~52 ~1 ~62 ~52 ~16 ~98 quartz_block
-fill ~88 ~1 ~62 ~88 ~16 ~98 quartz_block
+fill ~52 ~1 ~62 ~52 ~16 ~92 quartz_block
+fill ~52 ~1 ~93 ~52 ~16 ~98 quartz_block
+fill ~88 ~1 ~62 ~88 ~16 ~92 quartz_block
+fill ~88 ~1 ~93 ~88 ~16 ~98 quartz_block
 fill ~53 ~1 ~62 ~53 ~16 ~62 quartz_block
 fill ~87 ~1 ~62 ~87 ~16 ~62 quartz_block
-fill ~53 ~8 ~63 ~87 ~8 ~85 air
-fill ~53 ~16 ~63 ~87 ~16 ~85 air
+fill ~53 ~8 ~63 ~83 ~8 ~85 air
+fill ~84 ~8 ~63 ~87 ~8 ~85 air
+fill ~53 ~16 ~63 ~83 ~16 ~85 air
+fill ~84 ~16 ~63 ~87 ~16 ~85 air
 fill ~53 ~8 ~80 ~59 ~8 ~98 air
 fill ~81 ~8 ~80 ~87 ~8 ~98 air
 fill ~53 ~16 ~80 ~59 ~16 ~98 air
 fill ~81 ~16 ~80 ~87 ~16 ~98 air
-fill ~54 ~0 ~63 ~86 ~0 ~85 quartz_block
+fill ~54 ~0 ~63 ~84 ~0 ~85 quartz_block
+fill ~85 ~0 ~63 ~86 ~0 ~85 quartz_block
 fill ~58 ~0 ~67 ~82 ~0 ~81 gold_block
 fill ~62 ~0 ~70 ~78 ~0 ~78 lapis_block
 fill ~66 ~0 ~72 ~74 ~0 ~76 diamond_block
