@@ -1,0 +1,29 @@
+# Phase 4: Mountain peak with ice cap
+setblock ~-2 ~101 ~0 packed_ice
+setblock ~-2 ~102 ~0 packed_ice
+setblock ~-2 ~103 ~0 packed_ice
+setblock ~-2 ~104 ~0 packed_ice
+setblock ~-2 ~105 ~0 packed_ice
+setblock ~2 ~101 ~0 packed_ice
+setblock ~2 ~102 ~0 packed_ice
+setblock ~2 ~103 ~0 packed_ice
+setblock ~2 ~104 ~0 packed_ice
+setblock ~2 ~105 ~0 packed_ice
+setblock ~0 ~101 ~-2 packed_ice
+setblock ~0 ~102 ~-2 packed_ice
+setblock ~0 ~103 ~-2 packed_ice
+setblock ~0 ~104 ~-2 packed_ice
+setblock ~0 ~105 ~-2 packed_ice
+setblock ~0 ~101 ~2 packed_ice
+setblock ~0 ~102 ~2 packed_ice
+setblock ~0 ~103 ~2 packed_ice
+setblock ~0 ~104 ~2 packed_ice
+setblock ~0 ~105 ~2 packed_ice
+setblock ~0 ~101 ~0 packed_ice
+setblock ~0 ~102 ~0 packed_ice
+setblock ~0 ~103 ~0 packed_ice
+setblock ~0 ~104 ~0 packed_ice
+setblock ~0 ~105 ~0 packed_ice
+setblock ~0 ~106 ~0 sea_lantern
+setblock ~0 ~107 ~0 blue_ice
+function mtn_city1

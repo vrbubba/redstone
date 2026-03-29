@@ -1,3 +1,3 @@
 # GIANT MOUNTAIN WITH ICE CAPS + SKYSCRAPER CITY
-# Run this to build everything. Find a VERY flat area!
-function mountain_clear
+# Run: /function build_mountain_city
+function mtn_clear1
