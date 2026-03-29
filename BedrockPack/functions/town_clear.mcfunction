@@ -1,0 +1,34 @@
+# Phase 1: Clear and flatten
+fill ~-5 ~-1 ~-5 ~25 ~15 ~25 air
+fill ~-5 ~-1 ~26 ~25 ~15 ~56 air
+fill ~-5 ~-1 ~57 ~25 ~15 ~87 air
+fill ~-5 ~-1 ~88 ~25 ~15 ~105 air
+fill ~26 ~-1 ~-5 ~56 ~15 ~25 air
+fill ~26 ~-1 ~26 ~56 ~15 ~56 air
+fill ~26 ~-1 ~57 ~56 ~15 ~87 air
+fill ~26 ~-1 ~88 ~56 ~15 ~105 air
+fill ~57 ~-1 ~-5 ~87 ~15 ~25 air
+fill ~57 ~-1 ~26 ~87 ~15 ~56 air
+fill ~57 ~-1 ~57 ~87 ~15 ~87 air
+fill ~57 ~-1 ~88 ~87 ~15 ~105 air
+fill ~88 ~-1 ~-5 ~95 ~15 ~25 air
+fill ~88 ~-1 ~26 ~95 ~15 ~56 air
+fill ~88 ~-1 ~57 ~95 ~15 ~87 air
+fill ~88 ~-1 ~88 ~95 ~15 ~105 air
+fill ~-5 ~-1 ~-5 ~25 ~0 ~25 grass_block
+fill ~-5 ~-1 ~26 ~25 ~0 ~56 grass_block
+fill ~-5 ~-1 ~57 ~25 ~0 ~87 grass_block
+fill ~-5 ~-1 ~88 ~25 ~0 ~105 grass_block
+fill ~26 ~-1 ~-5 ~56 ~0 ~25 grass_block
+fill ~26 ~-1 ~26 ~56 ~0 ~56 grass_block
+fill ~26 ~-1 ~57 ~56 ~0 ~87 grass_block
+fill ~26 ~-1 ~88 ~56 ~0 ~105 grass_block
+fill ~57 ~-1 ~-5 ~87 ~0 ~25 grass_block
+fill ~57 ~-1 ~26 ~87 ~0 ~56 grass_block
+fill ~57 ~-1 ~57 ~87 ~0 ~87 grass_block
+fill ~57 ~-1 ~88 ~87 ~0 ~105 grass_block
+fill ~88 ~-1 ~-5 ~95 ~0 ~25 grass_block
+fill ~88 ~-1 ~26 ~95 ~0 ~56 grass_block
+fill ~88 ~-1 ~57 ~95 ~0 ~87 grass_block
+fill ~88 ~-1 ~88 ~95 ~0 ~105 grass_block
+function town_roads
