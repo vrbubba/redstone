@@ -237,23 +237,23 @@ fill ~110 ~18 ~81 ~116 ~21 ~81 glass
 setblock ~113 ~23 ~85 glowstone
 fill ~107 ~17 ~85 ~107 ~19 ~86 air
 fill ~107 ~20 ~85 ~107 ~20 ~86 gold_block
-fill ~55 ~16 ~85 ~67 ~24 ~93 quartz_block
-fill ~56 ~17 ~86 ~66 ~23 ~92 air
-fill ~56 ~16 ~86 ~66 ~16 ~92 black_wool
-fill ~60 ~17 ~90 ~62 ~17 ~91 white_wool
-fill ~60 ~17 ~92 ~62 ~18 ~92 gold_block
-fill ~60 ~17 ~91 ~62 ~17 ~91 red_wool
-setblock ~59 ~17 ~91 dark_oak_planks
-setblock ~63 ~17 ~91 dark_oak_planks
-setblock ~59 ~18 ~91 sea_lantern
-setblock ~63 ~18 ~91 sea_lantern
-fill ~65 ~17 ~87 ~65 ~17 ~89 dark_oak_planks
-setblock ~57 ~17 ~87 spruce_planks
-fill ~59 ~16 ~89 ~63 ~16 ~90 black_wool
-fill ~58 ~18 ~85 ~64 ~21 ~85 glass
-setblock ~61 ~23 ~89 glowstone
-fill ~55 ~17 ~89 ~55 ~19 ~90 air
-fill ~55 ~20 ~89 ~55 ~20 ~90 gold_block
+fill ~64 ~16 ~85 ~76 ~24 ~93 quartz_block
+fill ~65 ~17 ~86 ~75 ~23 ~92 air
+fill ~65 ~16 ~86 ~75 ~16 ~92 black_wool
+fill ~69 ~17 ~90 ~71 ~17 ~91 white_wool
+fill ~69 ~17 ~92 ~71 ~18 ~92 gold_block
+fill ~69 ~17 ~91 ~71 ~17 ~91 red_wool
+setblock ~68 ~17 ~91 dark_oak_planks
+setblock ~72 ~17 ~91 dark_oak_planks
+setblock ~68 ~18 ~91 sea_lantern
+setblock ~72 ~18 ~91 sea_lantern
+fill ~74 ~17 ~87 ~74 ~17 ~89 dark_oak_planks
+setblock ~66 ~17 ~87 spruce_planks
+fill ~68 ~16 ~89 ~72 ~16 ~90 black_wool
+fill ~67 ~18 ~85 ~73 ~21 ~85 glass
+setblock ~70 ~23 ~89 glowstone
+fill ~64 ~17 ~89 ~64 ~19 ~90 air
+fill ~64 ~20 ~89 ~64 ~20 ~90 gold_block
 # --- Observatory ---
 fill ~60 ~24 ~65 ~80 ~29 ~80 glass
 fill ~62 ~25 ~67 ~78 ~28 ~78 air

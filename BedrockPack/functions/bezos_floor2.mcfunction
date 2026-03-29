@@ -1,22 +1,22 @@
 # Phase 8: Floor 2 - Master suite + 14 bedrooms
 # --- Master Suite ---
-fill ~55 ~8 ~75 ~85 ~16 ~98 quartz_block
-fill ~57 ~9 ~77 ~83 ~15 ~96 air
-fill ~57 ~8 ~77 ~83 ~8 ~96 red_wool
+fill ~59 ~8 ~75 ~81 ~16 ~98 quartz_block
+fill ~60 ~9 ~77 ~80 ~15 ~96 air
+fill ~60 ~8 ~77 ~80 ~8 ~96 red_wool
 fill ~66 ~9 ~92 ~74 ~9 ~95 white_wool
 fill ~66 ~9 ~95 ~74 ~10 ~95 gold_block
 fill ~66 ~11 ~95 ~74 ~11 ~95 diamond_block
 fill ~69 ~9 ~96 ~71 ~15 ~96 cobblestone
 setblock ~70 ~9 ~96 netherrack
 fill ~68 ~12 ~96 ~72 ~12 ~96 gold_block
-fill ~57 ~8 ~77 ~63 ~16 ~82 quartz_block
-fill ~58 ~9 ~78 ~62 ~15 ~81 air
-fill ~58 ~8 ~78 ~62 ~8 ~81 quartz_block
-fill ~59 ~9 ~79 ~61 ~9 ~80 diamond_block
-fill ~77 ~8 ~77 ~83 ~16 ~82 quartz_block
-fill ~78 ~9 ~78 ~82 ~15 ~81 air
-fill ~78 ~8 ~78 ~82 ~8 ~81 quartz_block
-fill ~79 ~9 ~79 ~81 ~9 ~80 diamond_block
+fill ~60 ~8 ~77 ~65 ~16 ~82 quartz_block
+fill ~61 ~9 ~78 ~64 ~15 ~81 air
+fill ~61 ~8 ~78 ~64 ~8 ~81 quartz_block
+fill ~62 ~9 ~79 ~63 ~9 ~80 diamond_block
+fill ~75 ~8 ~77 ~80 ~16 ~82 quartz_block
+fill ~76 ~9 ~78 ~79 ~15 ~81 air
+fill ~76 ~8 ~78 ~79 ~8 ~81 quartz_block
+fill ~77 ~9 ~79 ~78 ~9 ~80 diamond_block
 setblock ~70 ~15 ~86 glowstone
 setblock ~69 ~15 ~86 glowstone
 setblock ~71 ~15 ~86 glowstone
@@ -27,6 +27,8 @@ setblock ~71 ~15 ~87 glowstone
 setblock ~69 ~15 ~87 glowstone
 setblock ~71 ~15 ~85 glowstone
 setblock ~70 ~16 ~86 gold_block
+fill ~59 ~9 ~87 ~59 ~11 ~88 air
+fill ~81 ~9 ~87 ~81 ~11 ~88 air
 fill ~2 ~8 ~27 ~14 ~16 ~35 quartz_block
 fill ~3 ~9 ~28 ~13 ~15 ~34 air
 fill ~3 ~8 ~28 ~13 ~8 ~34 white_wool

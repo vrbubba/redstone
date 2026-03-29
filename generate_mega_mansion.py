@@ -207,10 +207,10 @@ def gen_foyer():
     lines.append(fill(53,FH,63, 87,FH,85, "air"))
     lines.append(fill(53,FH*2,63, 87,FH*2,85, "air"))
     # CUT STAIR HOLES in floors so stairs actually connect
-    lines.append(fill(53,FH,86, 59,FH,98, "air"))
-    lines.append(fill(81,FH,86, 87,FH,98, "air"))
-    lines.append(fill(53,FH*2,86, 59,FH*2,98, "air"))
-    lines.append(fill(81,FH*2,86, 87,FH*2,98, "air"))
+    lines.append(fill(53,FH,80, 59,FH,98, "air"))
+    lines.append(fill(81,FH,80, 87,FH,98, "air"))
+    lines.append(fill(53,FH*2,80, 59,FH*2,98, "air"))
+    lines.append(fill(81,FH*2,80, 87,FH*2,98, "air"))
     # Gold + lapis inlay floor
     lines.append(fill(54,0,63, 86,0,85, "quartz_block"))
     lines.append(fill(58,0,67, 82,0,81, "gold_block"))
@@ -452,11 +452,11 @@ def gen_floor2():
     lines = [comment("Phase 8: Floor 2 - Master suite + 14 bedrooms")]
     yb = FH  # floor 2 base
 
-    # MASTER SUITE (center, X=55-85, Z=62-98)
+    # MASTER SUITE (center, X=59-81, Z=75-98)
     lines.append(comment("--- Master Suite ---"))
-    lines.append(fill(55,yb,75, 85,yb+FH,98, "quartz_block"))
-    lines.append(fill(57,yb+1,77, 83,yb+FH-1,96, "air"))
-    lines.append(fill(57,yb,77, 83,yb,96, "red_wool"))
+    lines.append(fill(59,yb,75, 81,yb+FH,98, "quartz_block"))
+    lines.append(fill(60,yb+1,77, 80,yb+FH-1,96, "air"))
+    lines.append(fill(60,yb,77, 80,yb,96, "red_wool"))
     # King bed with gold
     lines.append(fill(66,yb+1,92, 74,yb+1,95, "white_wool"))
     lines.append(fill(66,yb+1,95, 74,yb+2,95, "gold_block"))
@@ -466,20 +466,23 @@ def gen_floor2():
     lines.append(sb(70,yb+1,96, "netherrack"))
     lines.append(fill(68,yb+4,96, 72,yb+4,96, "gold_block"))
     # His bathroom
-    lines.append(fill(57,yb,77, 63,yb+FH,82, "quartz_block"))
-    lines.append(fill(58,yb+1,78, 62,yb+FH-1,81, "air"))
-    lines.append(fill(58,yb,78, 62,yb,81, "quartz_block"))
-    lines.append(fill(59,yb+1,79, 61,yb+1,80, "diamond_block"))
+    lines.append(fill(60,yb,77, 65,yb+FH,82, "quartz_block"))
+    lines.append(fill(61,yb+1,78, 64,yb+FH-1,81, "air"))
+    lines.append(fill(61,yb,78, 64,yb,81, "quartz_block"))
+    lines.append(fill(62,yb+1,79, 63,yb+1,80, "diamond_block"))
     # Her bathroom
-    lines.append(fill(77,yb,77, 83,yb+FH,82, "quartz_block"))
-    lines.append(fill(78,yb+1,78, 82,yb+FH-1,81, "air"))
-    lines.append(fill(78,yb,78, 82,yb,81, "quartz_block"))
-    lines.append(fill(79,yb+1,79, 81,yb+1,80, "diamond_block"))
+    lines.append(fill(75,yb,77, 80,yb+FH,82, "quartz_block"))
+    lines.append(fill(76,yb+1,78, 79,yb+FH-1,81, "air"))
+    lines.append(fill(76,yb,78, 79,yb,81, "quartz_block"))
+    lines.append(fill(77,yb+1,79, 78,yb+1,80, "diamond_block"))
     # Chandelier
     lines.append(sb(70,yb+FH-1,86, "glowstone"))
     for d in [(-1,0),(1,0),(0,-1),(0,1),(-1,-1),(1,1),(-1,1),(1,-1)]:
         lines.append(sb(70+d[0],yb+FH-1,86+d[1], "glowstone"))
     lines.append(sb(70,yb+FH,86, "gold_block"))
+    # Master suite doors from stairs
+    lines.append(fill(59,yb+1,87, 59,yb+3,88, "air"))
+    lines.append(fill(81,yb+1,87, 81,yb+3,88, "air"))
 
     # 14 BEDROOMS along wings
     carpets = ["white_wool","red_wool","blue_wool","green_wool","yellow_wool",
@@ -522,7 +525,7 @@ def gen_floor3():
         make_bedroom(lines, RW_X1+2, z, yb, 12, 8, carpets[room_idx % len(carpets)])
         room_idx += 1
     # Center back bedroom
-    make_bedroom(lines, 55, 85, yb, 12, 8, carpets[14])
+    make_bedroom(lines, 64, 85, yb, 12, 8, carpets[14])
 
     # OBSERVATORY (center front, X=55-85 on rooftop)
     lines.append(comment("--- Observatory ---"))

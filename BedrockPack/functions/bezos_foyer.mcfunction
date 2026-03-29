@@ -5,10 +5,10 @@ fill ~53 ~1 ~62 ~53 ~16 ~62 quartz_block
 fill ~87 ~1 ~62 ~87 ~16 ~62 quartz_block
 fill ~53 ~8 ~63 ~87 ~8 ~85 air
 fill ~53 ~16 ~63 ~87 ~16 ~85 air
-fill ~53 ~8 ~86 ~59 ~8 ~98 air
-fill ~81 ~8 ~86 ~87 ~8 ~98 air
-fill ~53 ~16 ~86 ~59 ~16 ~98 air
-fill ~81 ~16 ~86 ~87 ~16 ~98 air
+fill ~53 ~8 ~80 ~59 ~8 ~98 air
+fill ~81 ~8 ~80 ~87 ~8 ~98 air
+fill ~53 ~16 ~80 ~59 ~16 ~98 air
+fill ~81 ~16 ~80 ~87 ~16 ~98 air
 fill ~54 ~0 ~63 ~86 ~0 ~85 quartz_block
 fill ~58 ~0 ~67 ~82 ~0 ~81 gold_block
 fill ~62 ~0 ~70 ~78 ~0 ~78 lapis_block
