@@ -233,48 +233,67 @@ def gen_skyscrapers():
         bx = CITY_X + xo
         bz = CITY_Z + zo
         lines.append(comment(f"--- {name} ({w}x{d}, {h} tall) ---"))
-        
+
         # Foundation
         lines.append(fill(bx, -1, bz, bx+w, -1, bz+d, "stone_bricks"))
-        
-        # Exterior shell (glass curtain wall with steel frame)
-        # Steel frame (corners and edges)
-        lines.append(fill(bx, 1, bz, bx, h, bz, "iron_block"))         # corner pillars
-        lines.append(fill(bx+w, 1, bz, bx+w, h, bz, "iron_block"))
-        lines.append(fill(bx, 1, bz+d, bx, h, bz+d, "iron_block"))
-        lines.append(fill(bx+w, 1, bz+d, bx+w, h, bz+d, "iron_block"))
-        
-        # Build floor by floor
+
+        # Build floor by floor using solid-shell-then-hollow
         floor_h = 5
         for fy in range(0, h, floor_h):
             yb = fy
             yt = min(fy + floor_h, h)
-            
-            # Floor slab
+
+            # Step 1: Solid floor slab
             lines.append(fill(bx, yb, bz, bx+w, yb, bz+d, "polished_deepslate"))
-            
-            # Glass walls (all 4 sides)
-            lines.append(fill(bx+1, yb+1, bz, bx+w-1, yt-1, bz, "glass"))        # south
-            lines.append(fill(bx+1, yb+1, bz+d, bx+w-1, yt-1, bz+d, "glass"))    # north
-            lines.append(fill(bx, yb+1, bz+1, bx, yt-1, bz+d-1, "glass"))        # west
-            lines.append(fill(bx+w, yb+1, bz+1, bx+w, yt-1, bz+d-1, "glass"))    # east
-            
-            # Interior clear
+
+            # Step 2: Solid outer shell walls (all 4 sides, full thickness)
+            lines.append(fill(bx, yb+1, bz, bx+w, yt-1, bz, "iron_block"))      # south wall
+            lines.append(fill(bx, yb+1, bz+d, bx+w, yt-1, bz+d, "iron_block"))  # north wall
+            lines.append(fill(bx, yb+1, bz, bx, yt-1, bz+d, "iron_block"))      # west wall
+            lines.append(fill(bx+w, yb+1, bz, bx+w, yt-1, bz+d, "iron_block"))  # east wall
+
+            # Step 3: Hollow interior
             lines.append(fill(bx+1, yb+1, bz+1, bx+w-1, yt-1, bz+d-1, "air"))
-            
-            # Floor lighting
+
+            # Step 4: Cut glass windows into the solid walls (between columns)
+            # We leave iron columns every 4 blocks for the structural frame
+            col_spacing = 4
+            # South face (Z=bz)
+            for wx in range(bx+2, bx+w-1, col_spacing):
+                we = min(wx + col_spacing - 2, bx+w-2)
+                if we > wx:
+                    lines.append(fill(wx, yb+2, bz, we, yt-2, bz, "glass"))
+            # North face (Z=bz+d)
+            for wx in range(bx+2, bx+w-1, col_spacing):
+                we = min(wx + col_spacing - 2, bx+w-2)
+                if we > wx:
+                    lines.append(fill(wx, yb+2, bz+d, we, yt-2, bz+d, "glass"))
+            # West face (X=bx)
+            for wz in range(bz+2, bz+d-1, col_spacing):
+                we = min(wz + col_spacing - 2, bz+d-2)
+                if we > wz:
+                    lines.append(fill(bx, yb+2, wz, bx, yt-2, we, "glass"))
+            # East face (X=bx+w)
+            for wz in range(bz+2, bz+d-1, col_spacing):
+                we = min(wz + col_spacing - 2, bz+d-2)
+                if we > wz:
+                    lines.append(fill(bx+w, yb+2, wz, bx+w, yt-2, we, "glass"))
+
+            # Step 5: Horizontal beams on ALL 4 sides at ceiling level
+            lines.append(fill(bx, yt, bz, bx+w, yt, bz, "iron_block"))
+            lines.append(fill(bx, yt, bz+d, bx+w, yt, bz+d, "iron_block"))
+            lines.append(fill(bx, yt, bz+1, bx, yt, bz+d-1, "iron_block"))
+            lines.append(fill(bx+w, yt, bz+1, bx+w, yt, bz+d-1, "iron_block"))
+
+            # Floor lighting (recessed in floor)
             lines.append(sb(bx + w//2, yb, bz + d//2, "glowstone"))
             if w > 12:
                 lines.append(sb(bx + w//4, yb, bz + d//4, "glowstone"))
                 lines.append(sb(bx + 3*w//4, yb, bz + 3*d//4, "glowstone"))
-            
-            # Horizontal steel beams every floor
-            lines.append(fill(bx, yt, bz, bx+w, yt, bz, "iron_block"))
-            lines.append(fill(bx, yt, bz+d, bx+w, yt, bz+d, "iron_block"))
-        
+
         # Roof
         lines.append(fill(bx, h, bz, bx+w, h, bz+d, "polished_deepslate"))
-        
+
         # Rooftop features
         if i == 2:  # Tallest tower gets a spire
             for dy in range(1, 20):
@@ -291,7 +310,7 @@ def gen_skyscrapers():
             lines.append(fill(bx+2, h+1, bz+2, bx+4, h+2, bz+4, "iron_block"))
             lines.append(sb(bx+3, h+3, bz+3, "iron_block"))
 
-        # Lobby entrance (front face, ground level)
+        # Lobby entrance (front face, ground level - cut through solid wall)
         lines.append(fill(bx + w//2 - 2, 1, bz, bx + w//2 + 2, 4, bz, "air"))
         lines.append(fill(bx + w//2 - 2, 5, bz, bx + w//2 + 2, 5, bz, "iron_block"))
 
