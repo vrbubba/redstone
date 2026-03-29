@@ -1,0 +1,3 @@
+# redstone
+
+Initial project documentation.
