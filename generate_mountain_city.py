@@ -84,22 +84,14 @@ def gen_mountain():
     lines = [comment("Phase 2: Mountain base (Y=1-35)")]
     for y in range(1, 36):
         t = y / MTN_HEIGHT
-        r = int(MTN_RADIUS * (1.0 - t**0.6))
+        r = int(MTN_RADIUS * (1.0 - t * t * 0.8))  # quadratic taper
         if r < 1: break
         block = "dirt" if y <= 3 else "stone"
-        # Fill row-by-row to keep command count low
-        for dx in range(-r, r+1, 30):
-            ex = min(dx + 29, r)
-            half_z = int(math.sqrt(max(0, r*r - max(abs(dx),abs(ex))**2)))
-            if half_z > 0:
-                lines.append(fill(MTN_CX+dx, y, MTN_CZ-half_z,
-                                  MTN_CX+ex, y, MTN_CZ+half_z, block))
-        # Grass cap on surface
-        if y > 5 and y < 25:
-            sr = min(r-1, 30)
-            if sr > 0:
-                lines.append(fill(MTN_CX-sr, y, MTN_CZ-sr,
-                                  MTN_CX+sr, y, MTN_CZ+sr, "grass_block"))
+        lines.append(fill(MTN_CX-r, y, MTN_CZ-r, MTN_CX+r, y, MTN_CZ+r, block))
+        # Grass surface
+        if y > 3 and y < 25:
+            lines.append(fill(MTN_CX-r+1, y, MTN_CZ-r+1,
+                              MTN_CX+r-1, y, MTN_CZ+r-1, "grass_block"))
     lines.append("function mtn_base2")
     write_func("mtn_base1", lines)
 
@@ -107,22 +99,25 @@ def gen_mountain():
     lines = [comment("Phase 3: Mountain mid (Y=36-65)")]
     for y in range(36, 66):
         t = y / MTN_HEIGHT
-        r = int(MTN_RADIUS * (1.0 - t**0.6))
+        r = int(MTN_RADIUS * (1.0 - t * t * 0.8))
         if r < 1: break
-        for dx in range(-r, r+1, 30):
-            ex = min(dx + 29, r)
-            half_z = int(math.sqrt(max(0, r*r - max(abs(dx),abs(ex))**2)))
-            if half_z > 0:
-                lines.append(fill(MTN_CX+dx, y, MTN_CZ-half_z,
-                                  MTN_CX+ex, y, MTN_CZ+half_z, "stone"))
+        lines.append(fill(MTN_CX-r, y, MTN_CZ-r, MTN_CX+r, y, MTN_CZ+r, "stone"))
     # Trees on lower slopes
     random.seed(42)
     for _ in range(40):
         angle = random.uniform(0, 2*math.pi)
-        dist = random.uniform(15, 40)
+        dist = random.uniform(10, 35)
         tx = MTN_CX + int(dist * math.cos(angle))
         tz = MTN_CZ + int(dist * math.sin(angle))
-        ty = int(MTN_HEIGHT * (1.0 - (dist/MTN_RADIUS)**(1/0.6)))
+        # Approximate Y at this distance from center
+        t_dist = dist / MTN_RADIUS
+        ty = 0
+        for check_y in range(MTN_HEIGHT, 0, -1):
+            t_check = check_y / MTN_HEIGHT
+            r_check = int(MTN_RADIUS * (1.0 - t_check * t_check * 0.8))
+            if r_check >= dist:
+                ty = check_y
+                break
         if 10 < ty < TREE_LINE:
             for dy in range(1, 5):
                 lines.append(sb(tx, ty+dy, tz, "oak_log"))
@@ -135,7 +130,7 @@ def gen_mountain():
     lines = [comment("Phase 4: Mountain peak with ice cap")]
     for y in range(66, MTN_HEIGHT + 1):
         t = y / MTN_HEIGHT
-        r = int(MTN_RADIUS * (1.0 - t**0.6))
+        r = int(MTN_RADIUS * (1.0 - t * t * 0.8))
         if r < 1: r = 1
         if y >= ICE_CAP:
             block = "blue_ice"
@@ -143,12 +138,7 @@ def gen_mountain():
             block = "snow"
         else:
             block = "stone"
-        for dx in range(-r, r+1, 30):
-            ex = min(dx + 29, r)
-            half_z = int(math.sqrt(max(0, r*r - max(abs(dx),abs(ex))**2)))
-            if half_z > 0:
-                lines.append(fill(MTN_CX+dx, y, MTN_CZ-half_z,
-                                  MTN_CX+ex, y, MTN_CZ+half_z, block))
+        lines.append(fill(MTN_CX-r, y, MTN_CZ-r, MTN_CX+r, y, MTN_CZ+r, block))
     # Ice spikes at summit
     for dx, dz in [(-2,0),(2,0),(0,-2),(0,2),(0,0)]:
         for dy in range(MTN_HEIGHT+1, MTN_HEIGHT+6):
@@ -160,10 +150,17 @@ def gen_mountain():
     random.seed(99)
     for _ in range(50):
         angle = random.uniform(0, 2*math.pi)
-        dist = random.uniform(5, 25)
+        dist = random.uniform(5, 20)
         sx = MTN_CX + int(dist * math.cos(angle))
         sz = MTN_CZ + int(dist * math.sin(angle))
-        sy = int(MTN_HEIGHT * (1.0 - (dist/MTN_RADIUS)**(1/0.6)))
+        for check_y in range(MTN_HEIGHT, 0, -1):
+            t_c = check_y / MTN_HEIGHT
+            r_c = int(MTN_RADIUS * (1.0 - t_c * t_c * 0.8))
+            if r_c >= dist:
+                sy = check_y
+                break
+        else:
+            sy = 0
         if SNOW_LINE - 8 < sy < SNOW_LINE:
             lines.append(sb(sx, sy+1, sz, "snow"))
 
