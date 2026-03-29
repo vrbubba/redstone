@@ -150,7 +150,7 @@ def gen_exterior():
     lines.append(fill(63,1,BACK_Z1, 63,7,BACK_Z1, "gold_block"))
     lines.append(fill(77,1,BACK_Z1, 77,7,BACK_Z1, "gold_block"))
     lines.append(fill(64,7,BACK_Z1, 76,7,BACK_Z1, "gold_block"))
-    lines.append("function bezos_windows")
+    lines.append("function bezos_foyer")
     write_func("bezos_exterior", lines)
 
 def gen_windows():
@@ -161,29 +161,38 @@ def gen_windows():
         wy2 = yb + FH - 2
         # Left wing front (Z=25)
         for x in range(4, 32, 7):
+            lines.append(fill(x,wy1,LW_Z1, x+3,wy2,LW_Z1+WALL, "air"))
             lines.append(fill(x,wy1,LW_Z1, x+3,wy2,LW_Z1, "glass"))
         # Right wing front (Z=25)
         for x in range(109, 137, 7):
+            lines.append(fill(x,wy1,RW_Z1, x+3,wy2,RW_Z1+WALL, "air"))
             lines.append(fill(x,wy1,RW_Z1, x+3,wy2,RW_Z1, "glass"))
         # Back face (Z=100)
         for x in range(5, 135, 10):
+            lines.append(fill(x,wy1,BACK_Z2-WALL, x+5,wy2,BACK_Z2, "air"))
             lines.append(fill(x,wy1,BACK_Z2, x+5,wy2,BACK_Z2, "glass"))
         # Left side (X=0)
         for z in range(30, 96, 10):
+            lines.append(fill(LW_X1,wy1,z, LW_X1+WALL,wy2,z+5, "air"))
             lines.append(fill(LW_X1,wy1,z, LW_X1,wy2,z+5, "glass"))
         # Right side (X=140)
         for z in range(30, 96, 10):
+            lines.append(fill(BACK_X2-WALL,wy1,z, BACK_X2,wy2,z+5, "air"))
             lines.append(fill(BACK_X2,wy1,z, BACK_X2,wy2,z+5, "glass"))
         # Inner U faces
         for z in range(30, 56, 10):
+            lines.append(fill(LW_X2-WALL,wy1,z, LW_X2,wy2,z+5, "air"))
             lines.append(fill(LW_X2,wy1,z, LW_X2,wy2,z+5, "glass"))
+            lines.append(fill(RW_X1,wy1,z, RW_X1+WALL,wy2,z+5, "air"))
             lines.append(fill(RW_X1,wy1,z, RW_X1,wy2,z+5, "glass"))
         # Center front face (Z=60)
         for x in range(40, 55, 10):
+            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1+WALL, "air"))
             lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1, "glass"))
         for x in range(85, 100, 10):
+            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1+WALL, "air"))
             lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1, "glass"))
-    lines.append("function bezos_foyer")
+    lines.append("function bezos_pool")
     write_func("bezos_windows", lines)
 
 def gen_foyer():
@@ -524,7 +533,7 @@ def gen_floor3():
     lines.append(fill(69,ry+1,72, 71,ry+3,72, "amethyst_block"))  # telescope
     lines.append(sb(70,ry+4,72, "glowstone"))
 
-    lines.append("function bezos_pool")
+    lines.append("function bezos_windows")
     write_func("bezos_floor3", lines)
 
 def gen_pool():

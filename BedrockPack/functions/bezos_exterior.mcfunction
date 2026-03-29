@@ -81,4 +81,4 @@ fill ~64 ~1 ~60 ~76 ~6 ~60 air
 fill ~63 ~1 ~60 ~63 ~7 ~60 gold_block
 fill ~77 ~1 ~60 ~77 ~7 ~60 gold_block
 fill ~64 ~7 ~60 ~76 ~7 ~60 gold_block
-function bezos_windows
+function bezos_foyer

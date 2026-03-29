@@ -260,4 +260,4 @@ fill ~62 ~25 ~67 ~78 ~28 ~78 air
 fill ~62 ~24 ~67 ~78 ~24 ~78 quartz_block
 fill ~69 ~25 ~72 ~71 ~27 ~72 amethyst_block
 setblock ~70 ~28 ~72 glowstone
-function bezos_pool
+function bezos_windows
