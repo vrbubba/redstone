@@ -63,12 +63,12 @@ setblock ~1 ~1 ~23 oak_leaves
 setblock ~2 ~1 ~23 oak_leaves
 setblock ~13 ~1 ~23 oak_leaves
 setblock ~14 ~1 ~23 oak_leaves
-setblock ~5 ~1 ~38 birch_log
-setblock ~5 ~2 ~38 birch_log
-setblock ~5 ~3 ~38 birch_log
-setblock ~5 ~4 ~38 birch_log
-fill ~3 ~5 ~36 ~7 ~6 ~40 birch_leaves
-fill ~4 ~7 ~37 ~6 ~7 ~39 birch_leaves
+setblock ~2 ~1 ~21 birch_log
+setblock ~2 ~2 ~21 birch_log
+setblock ~2 ~3 ~21 birch_log
+setblock ~2 ~4 ~21 birch_log
+fill ~1 ~5 ~20 ~3 ~6 ~22 birch_leaves
+setblock ~2 ~7 ~21 birch_leaves
 setblock ~8 ~1 ~20 cobblestone_wall
 setblock ~8 ~2 ~20 iron_block
 setblock ~9 ~3 ~23 sea_lantern
@@ -136,12 +136,12 @@ setblock ~23 ~1 ~23 oak_leaves
 setblock ~24 ~1 ~23 oak_leaves
 setblock ~35 ~1 ~23 oak_leaves
 setblock ~36 ~1 ~23 oak_leaves
-setblock ~27 ~1 ~38 birch_log
-setblock ~27 ~2 ~38 birch_log
-setblock ~27 ~3 ~38 birch_log
-setblock ~27 ~4 ~38 birch_log
-fill ~25 ~5 ~36 ~29 ~6 ~40 birch_leaves
-fill ~26 ~7 ~37 ~28 ~7 ~39 birch_leaves
+setblock ~24 ~1 ~21 birch_log
+setblock ~24 ~2 ~21 birch_log
+setblock ~24 ~3 ~21 birch_log
+setblock ~24 ~4 ~21 birch_log
+fill ~23 ~5 ~20 ~25 ~6 ~22 birch_leaves
+setblock ~24 ~7 ~21 birch_leaves
 setblock ~30 ~1 ~20 cobblestone_wall
 setblock ~30 ~2 ~20 iron_block
 setblock ~31 ~3 ~23 sea_lantern
@@ -209,12 +209,12 @@ setblock ~51 ~1 ~23 oak_leaves
 setblock ~52 ~1 ~23 oak_leaves
 setblock ~63 ~1 ~23 oak_leaves
 setblock ~64 ~1 ~23 oak_leaves
-setblock ~55 ~1 ~38 birch_log
-setblock ~55 ~2 ~38 birch_log
-setblock ~55 ~3 ~38 birch_log
-setblock ~55 ~4 ~38 birch_log
-fill ~53 ~5 ~36 ~57 ~6 ~40 birch_leaves
-fill ~54 ~7 ~37 ~56 ~7 ~39 birch_leaves
+setblock ~52 ~1 ~21 birch_log
+setblock ~52 ~2 ~21 birch_log
+setblock ~52 ~3 ~21 birch_log
+setblock ~52 ~4 ~21 birch_log
+fill ~51 ~5 ~20 ~53 ~6 ~22 birch_leaves
+setblock ~52 ~7 ~21 birch_leaves
 setblock ~58 ~1 ~20 cobblestone_wall
 setblock ~58 ~2 ~20 iron_block
 setblock ~59 ~3 ~23 sea_lantern
@@ -282,12 +282,12 @@ setblock ~73 ~1 ~23 oak_leaves
 setblock ~74 ~1 ~23 oak_leaves
 setblock ~85 ~1 ~23 oak_leaves
 setblock ~86 ~1 ~23 oak_leaves
-setblock ~77 ~1 ~38 birch_log
-setblock ~77 ~2 ~38 birch_log
-setblock ~77 ~3 ~38 birch_log
-setblock ~77 ~4 ~38 birch_log
-fill ~75 ~5 ~36 ~79 ~6 ~40 birch_leaves
-fill ~76 ~7 ~37 ~78 ~7 ~39 birch_leaves
+setblock ~74 ~1 ~21 birch_log
+setblock ~74 ~2 ~21 birch_log
+setblock ~74 ~3 ~21 birch_log
+setblock ~74 ~4 ~21 birch_log
+fill ~73 ~5 ~20 ~75 ~6 ~22 birch_leaves
+setblock ~74 ~7 ~21 birch_leaves
 setblock ~80 ~1 ~20 cobblestone_wall
 setblock ~80 ~2 ~20 iron_block
 setblock ~81 ~3 ~23 sea_lantern
@@ -355,12 +355,12 @@ setblock ~1 ~1 ~3 oak_leaves
 setblock ~2 ~1 ~3 oak_leaves
 setblock ~13 ~1 ~3 oak_leaves
 setblock ~14 ~1 ~3 oak_leaves
-setblock ~5 ~1 ~18 birch_log
-setblock ~5 ~2 ~18 birch_log
-setblock ~5 ~3 ~18 birch_log
-setblock ~5 ~4 ~18 birch_log
-fill ~3 ~5 ~16 ~7 ~6 ~20 birch_leaves
-fill ~4 ~7 ~17 ~6 ~7 ~19 birch_leaves
+setblock ~2 ~1 ~1 birch_log
+setblock ~2 ~2 ~1 birch_log
+setblock ~2 ~3 ~1 birch_log
+setblock ~2 ~4 ~1 birch_log
+fill ~1 ~5 ~0 ~3 ~6 ~2 birch_leaves
+setblock ~2 ~7 ~1 birch_leaves
 setblock ~8 ~1 ~0 cobblestone_wall
 setblock ~8 ~2 ~0 iron_block
 setblock ~9 ~3 ~3 sea_lantern

@@ -5,15 +5,22 @@ fill ~19 ~0 ~78 ~20 ~0 ~103 stone
 fill ~0 ~0 ~90 ~30 ~0 ~91 stone
 fill ~31 ~0 ~90 ~39 ~0 ~91 stone
 fill ~18 ~0 ~89 ~22 ~0 ~93 stone_bricks
-fill ~19 ~1 ~90 ~21 ~1 ~92 stone_bricks
+fill ~18 ~1 ~89 ~22 ~2 ~89 stone_bricks
+fill ~18 ~1 ~93 ~22 ~2 ~93 stone_bricks
+fill ~18 ~1 ~89 ~18 ~2 ~93 stone_bricks
+fill ~22 ~1 ~89 ~22 ~2 ~93 stone_bricks
 fill ~19 ~0 ~90 ~21 ~0 ~92 prismarine
 setblock ~20 ~1 ~91 stone_bricks
 setblock ~20 ~2 ~91 stone_bricks
 setblock ~20 ~3 ~91 sea_lantern
-fill ~19 ~1 ~90 ~19 ~1 ~92 water
-fill ~21 ~1 ~90 ~21 ~1 ~92 water
-fill ~20 ~1 ~90 ~20 ~1 ~90 water
-fill ~20 ~1 ~92 ~20 ~1 ~92 water
+setblock ~19 ~1 ~90 water
+setblock ~19 ~1 ~91 water
+setblock ~19 ~1 ~92 water
+setblock ~21 ~1 ~90 water
+setblock ~21 ~1 ~91 water
+setblock ~21 ~1 ~92 water
+setblock ~20 ~1 ~90 water
+setblock ~20 ~1 ~92 water
 setblock ~5 ~1 ~83 oak_log
 setblock ~5 ~2 ~83 oak_log
 setblock ~5 ~3 ~83 oak_log

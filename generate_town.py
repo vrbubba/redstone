@@ -166,12 +166,12 @@ def build_modern_house(lines, px, pz, style_idx, facing="south"):
     # Bushes along front
     for bx_off in [1, 2, 13, 14]:
         lines.append(sb(px+bx_off, 1, pz+3, "oak_leaves"))
-    # Tree in backyard
-    tx, tz = px + 5, pz + PLOT_D - 4
+    # Tree in front yard (away from house)
+    tx, tz = px + 2, pz + 1
     for dy in range(1, 5):
         lines.append(sb(tx, dy, tz, "birch_log"))
-    lines.append(fill(tx-2, 5, tz-2, tx+2, 6, tz+2, "birch_leaves"))
-    lines.append(fill(tx-1, 7, tz-1, tx+1, 7, tz+1, "birch_leaves"))
+    lines.append(fill(tx-1, 5, tz-1, tx+1, 6, tz+1, "birch_leaves"))
+    lines.append(sb(tx, 7, tz, "birch_leaves"))
     # Mailbox
     lines.append(sb(px+8, 1, pz, "cobblestone_wall"))
     lines.append(sb(px+8, 2, pz, "iron_block"))
@@ -279,19 +279,30 @@ def gen_park():
     lines.append(fill(pk_x+pw//2-1, 0, pk_z, pk_x+pw//2, 0, pk_z+pd-1, "stone"))
     lines.append(fill(pk_x, 0, pk_z+pd//2-1, pk_x+pw-1, 0, pk_z+pd//2, "stone"))
 
-    # Central fountain
+    # Central fountain - contained basin
     fx, fz = pk_x + pw//2 - 2, pk_z + pd//2 - 2
+    # Outer base
     lines.append(fill(fx, 0, fz, fx+4, 0, fz+4, "stone_bricks"))
-    lines.append(fill(fx+1, 1, fz+1, fx+3, 1, fz+3, "stone_bricks"))
+    # Raised basin walls (2 blocks tall to contain water)
+    lines.append(fill(fx, 1, fz, fx+4, 2, fz, "stone_bricks"))     # south wall
+    lines.append(fill(fx, 1, fz+4, fx+4, 2, fz+4, "stone_bricks")) # north wall
+    lines.append(fill(fx, 1, fz, fx, 2, fz+4, "stone_bricks"))     # west wall
+    lines.append(fill(fx+4, 1, fz, fx+4, 2, fz+4, "stone_bricks")) # east wall
+    # Basin floor
     lines.append(fill(fx+1, 0, fz+1, fx+3, 0, fz+3, "prismarine"))
+    # Center pillar
     lines.append(sb(fx+2, 1, fz+2, "stone_bricks"))
     lines.append(sb(fx+2, 2, fz+2, "stone_bricks"))
     lines.append(sb(fx+2, 3, fz+2, "sea_lantern"))
-    # Water in fountain
-    lines.append(fill(fx+1, 1, fz+1, fx+1, 1, fz+3, "water"))
-    lines.append(fill(fx+3, 1, fz+1, fx+3, 1, fz+3, "water"))
-    lines.append(fill(fx+2, 1, fz+1, fx+2, 1, fz+1, "water"))
-    lines.append(fill(fx+2, 1, fz+3, fx+2, 1, fz+3, "water"))
+    # Water INSIDE the basin (Y=1, walls go to Y=2 so water is contained)
+    lines.append(sb(fx+1, 1, fz+1, "water"))
+    lines.append(sb(fx+1, 1, fz+2, "water"))
+    lines.append(sb(fx+1, 1, fz+3, "water"))
+    lines.append(sb(fx+3, 1, fz+1, "water"))
+    lines.append(sb(fx+3, 1, fz+2, "water"))
+    lines.append(sb(fx+3, 1, fz+3, "water"))
+    lines.append(sb(fx+2, 1, fz+1, "water"))
+    lines.append(sb(fx+2, 1, fz+3, "water"))
 
     # Trees (scattered)
     random.seed(789)
