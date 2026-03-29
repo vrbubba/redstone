@@ -304,19 +304,63 @@ def gen_finale():
         points_drop2.append((19 - i, PEAK2_Y - 3 - i, 40))
     lay_section(lines, points_drop2, powered_every=8)
 
-    # ── FIREWORKS AREA (x=8 to x=1) ──
-    lines.append(comment("--- Fireworks Finale ---"))
-    points_finale = [(x, BASE_Y, 40) for x in range(8, 0, -1)]
-    lay_section(lines, points_finale, powered_every=2)
+    # ── FIREWORKS AREA (x=8 to x=1) with detector rails + dispensers ──
+    lines.append(comment("--- Fireworks Finale (auto-triggered by minecart!) ---"))
 
-    # Fireworks platform
+    # Fireworks platform base
     lines.append(fill(-3, 0, 35, 12, 0, 45, "black_concrete"))
-    # Firework launcher pedestals
-    for x in [-2, 3, 7, 11]:
-        lines.append(fill(x, 1, 35, x, 3, 35, "iron_block"))
-        lines.append(sb(x, 4, 35, "sea_lantern"))
-        lines.append(fill(x, 1, 45, x, 3, 45, "iron_block"))
-        lines.append(sb(x, 4, 45, "sea_lantern"))
+
+    # Build the track: detector rails at x=7,5,3,1 — regular powered at x=8,6,4,2
+    for x in range(8, 0, -1):
+        is_detector = x in (7, 5, 3, 1)
+        # Support column
+        lines.append(fill(x, 0, 40, x, BASE_Y-1, 40, "stone_bricks"))
+        if is_detector:
+            # Detector rail on stone track bed
+            lines.append(sb(x, BASE_Y, 40, "stone_bricks"))
+            lines.append(sb(x, BASE_Y+1, 40, "detector_rail"))
+        else:
+            # Powered rail to keep cart moving
+            lines.append(sb(x, BASE_Y, 40, "redstone_block"))
+            lines.append(sb(x, BASE_Y+1, 40, "golden_rail"))
+
+    # For each detector rail, wire redstone to dispensers on both sides
+    # Layout per detector (at track z=40):
+    #   z=37: dispenser facing UP
+    #   z=38: solid block + redstone_wire on top
+    #   z=39: solid block + redstone_wire on top
+    #   z=40: track bed + detector_rail  <-- cart triggers here
+    #   z=41: solid block + redstone_wire on top
+    #   z=42: solid block + redstone_wire on top
+    #   z=43: dispenser facing UP
+    for x in (7, 5, 3, 1):
+        # South side wiring (z=39, z=38)
+        lines.append(sb(x, BASE_Y, 39, "stone_bricks"))
+        lines.append(sb(x, BASE_Y+1, 39, "redstone_wire"))
+        lines.append(sb(x, BASE_Y, 38, "stone_bricks"))
+        lines.append(sb(x, BASE_Y+1, 38, "redstone_wire"))
+        # South dispenser (z=37, facing UP)
+        lines.append(sb(x, BASE_Y, 37, 'dispenser ["facing_direction"=1]'))
+        # Fill south dispenser with firework rockets (slots 0-4)
+        for slot in range(5):
+            lines.append(f"replaceitem block ~{x} ~{BASE_Y} ~37 slot.container {slot} firework_rocket 1")
+
+        # North side wiring (z=41, z=42)
+        lines.append(sb(x, BASE_Y, 41, "stone_bricks"))
+        lines.append(sb(x, BASE_Y+1, 41, "redstone_wire"))
+        lines.append(sb(x, BASE_Y, 42, "stone_bricks"))
+        lines.append(sb(x, BASE_Y+1, 42, "redstone_wire"))
+        # North dispenser (z=43, facing UP)
+        lines.append(sb(x, BASE_Y, 43, 'dispenser ["facing_direction"=1]'))
+        # Fill north dispenser with firework rockets
+        for slot in range(5):
+            lines.append(f"replaceitem block ~{x} ~{BASE_Y} ~43 slot.container {slot} firework_rocket 1")
+
+        # Decorative pedestal around each dispenser
+        lines.append(fill(x-1, 1, 36, x+1, BASE_Y-1, 36, "iron_block"))
+        lines.append(sb(x, BASE_Y, 36, "sea_lantern"))
+        lines.append(fill(x-1, 1, 44, x+1, BASE_Y-1, 44, "iron_block"))
+        lines.append(sb(x, BASE_Y, 44, "sea_lantern"))
 
     # Colorful arches over finale
     finale_colors = ["red_concrete", "orange_concrete", "yellow_concrete",

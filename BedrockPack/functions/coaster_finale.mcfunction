@@ -68,48 +68,128 @@ setblock ~11 ~5 ~40 golden_rail
 fill ~10 ~0 ~40 ~10 ~2 ~40 stone_bricks
 setblock ~10 ~3 ~40 stone_bricks
 setblock ~10 ~4 ~40 rail
-# --- Fireworks Finale ---
+# --- Fireworks Finale (auto-triggered by minecart!) ---
+fill ~-3 ~0 ~35 ~12 ~0 ~45 black_concrete
 fill ~8 ~0 ~40 ~8 ~2 ~40 stone_bricks
 setblock ~8 ~3 ~40 redstone_block
 setblock ~8 ~4 ~40 golden_rail
 fill ~7 ~0 ~40 ~7 ~2 ~40 stone_bricks
 setblock ~7 ~3 ~40 stone_bricks
-setblock ~7 ~4 ~40 rail
+setblock ~7 ~4 ~40 detector_rail
 fill ~6 ~0 ~40 ~6 ~2 ~40 stone_bricks
 setblock ~6 ~3 ~40 redstone_block
 setblock ~6 ~4 ~40 golden_rail
 fill ~5 ~0 ~40 ~5 ~2 ~40 stone_bricks
 setblock ~5 ~3 ~40 stone_bricks
-setblock ~5 ~4 ~40 rail
+setblock ~5 ~4 ~40 detector_rail
 fill ~4 ~0 ~40 ~4 ~2 ~40 stone_bricks
 setblock ~4 ~3 ~40 redstone_block
 setblock ~4 ~4 ~40 golden_rail
 fill ~3 ~0 ~40 ~3 ~2 ~40 stone_bricks
 setblock ~3 ~3 ~40 stone_bricks
-setblock ~3 ~4 ~40 rail
+setblock ~3 ~4 ~40 detector_rail
 fill ~2 ~0 ~40 ~2 ~2 ~40 stone_bricks
 setblock ~2 ~3 ~40 redstone_block
 setblock ~2 ~4 ~40 golden_rail
 fill ~1 ~0 ~40 ~1 ~2 ~40 stone_bricks
 setblock ~1 ~3 ~40 stone_bricks
-setblock ~1 ~4 ~40 rail
-fill ~-3 ~0 ~35 ~12 ~0 ~45 black_concrete
-fill ~-2 ~1 ~35 ~-2 ~3 ~35 iron_block
-setblock ~-2 ~4 ~35 sea_lantern
-fill ~-2 ~1 ~45 ~-2 ~3 ~45 iron_block
-setblock ~-2 ~4 ~45 sea_lantern
-fill ~3 ~1 ~35 ~3 ~3 ~35 iron_block
-setblock ~3 ~4 ~35 sea_lantern
-fill ~3 ~1 ~45 ~3 ~3 ~45 iron_block
-setblock ~3 ~4 ~45 sea_lantern
-fill ~7 ~1 ~35 ~7 ~3 ~35 iron_block
-setblock ~7 ~4 ~35 sea_lantern
-fill ~7 ~1 ~45 ~7 ~3 ~45 iron_block
-setblock ~7 ~4 ~45 sea_lantern
-fill ~11 ~1 ~35 ~11 ~3 ~35 iron_block
-setblock ~11 ~4 ~35 sea_lantern
-fill ~11 ~1 ~45 ~11 ~3 ~45 iron_block
-setblock ~11 ~4 ~45 sea_lantern
+setblock ~1 ~4 ~40 detector_rail
+setblock ~7 ~3 ~39 stone_bricks
+setblock ~7 ~4 ~39 redstone_wire
+setblock ~7 ~3 ~38 stone_bricks
+setblock ~7 ~4 ~38 redstone_wire
+setblock ~7 ~3 ~37 dispenser ["facing_direction"=1]
+replaceitem block ~7 ~3 ~37 slot.container 0 firework_rocket 1
+replaceitem block ~7 ~3 ~37 slot.container 1 firework_rocket 1
+replaceitem block ~7 ~3 ~37 slot.container 2 firework_rocket 1
+replaceitem block ~7 ~3 ~37 slot.container 3 firework_rocket 1
+replaceitem block ~7 ~3 ~37 slot.container 4 firework_rocket 1
+setblock ~7 ~3 ~41 stone_bricks
+setblock ~7 ~4 ~41 redstone_wire
+setblock ~7 ~3 ~42 stone_bricks
+setblock ~7 ~4 ~42 redstone_wire
+setblock ~7 ~3 ~43 dispenser ["facing_direction"=1]
+replaceitem block ~7 ~3 ~43 slot.container 0 firework_rocket 1
+replaceitem block ~7 ~3 ~43 slot.container 1 firework_rocket 1
+replaceitem block ~7 ~3 ~43 slot.container 2 firework_rocket 1
+replaceitem block ~7 ~3 ~43 slot.container 3 firework_rocket 1
+replaceitem block ~7 ~3 ~43 slot.container 4 firework_rocket 1
+fill ~6 ~1 ~36 ~8 ~2 ~36 iron_block
+setblock ~7 ~3 ~36 sea_lantern
+fill ~6 ~1 ~44 ~8 ~2 ~44 iron_block
+setblock ~7 ~3 ~44 sea_lantern
+setblock ~5 ~3 ~39 stone_bricks
+setblock ~5 ~4 ~39 redstone_wire
+setblock ~5 ~3 ~38 stone_bricks
+setblock ~5 ~4 ~38 redstone_wire
+setblock ~5 ~3 ~37 dispenser ["facing_direction"=1]
+replaceitem block ~5 ~3 ~37 slot.container 0 firework_rocket 1
+replaceitem block ~5 ~3 ~37 slot.container 1 firework_rocket 1
+replaceitem block ~5 ~3 ~37 slot.container 2 firework_rocket 1
+replaceitem block ~5 ~3 ~37 slot.container 3 firework_rocket 1
+replaceitem block ~5 ~3 ~37 slot.container 4 firework_rocket 1
+setblock ~5 ~3 ~41 stone_bricks
+setblock ~5 ~4 ~41 redstone_wire
+setblock ~5 ~3 ~42 stone_bricks
+setblock ~5 ~4 ~42 redstone_wire
+setblock ~5 ~3 ~43 dispenser ["facing_direction"=1]
+replaceitem block ~5 ~3 ~43 slot.container 0 firework_rocket 1
+replaceitem block ~5 ~3 ~43 slot.container 1 firework_rocket 1
+replaceitem block ~5 ~3 ~43 slot.container 2 firework_rocket 1
+replaceitem block ~5 ~3 ~43 slot.container 3 firework_rocket 1
+replaceitem block ~5 ~3 ~43 slot.container 4 firework_rocket 1
+fill ~4 ~1 ~36 ~6 ~2 ~36 iron_block
+setblock ~5 ~3 ~36 sea_lantern
+fill ~4 ~1 ~44 ~6 ~2 ~44 iron_block
+setblock ~5 ~3 ~44 sea_lantern
+setblock ~3 ~3 ~39 stone_bricks
+setblock ~3 ~4 ~39 redstone_wire
+setblock ~3 ~3 ~38 stone_bricks
+setblock ~3 ~4 ~38 redstone_wire
+setblock ~3 ~3 ~37 dispenser ["facing_direction"=1]
+replaceitem block ~3 ~3 ~37 slot.container 0 firework_rocket 1
+replaceitem block ~3 ~3 ~37 slot.container 1 firework_rocket 1
+replaceitem block ~3 ~3 ~37 slot.container 2 firework_rocket 1
+replaceitem block ~3 ~3 ~37 slot.container 3 firework_rocket 1
+replaceitem block ~3 ~3 ~37 slot.container 4 firework_rocket 1
+setblock ~3 ~3 ~41 stone_bricks
+setblock ~3 ~4 ~41 redstone_wire
+setblock ~3 ~3 ~42 stone_bricks
+setblock ~3 ~4 ~42 redstone_wire
+setblock ~3 ~3 ~43 dispenser ["facing_direction"=1]
+replaceitem block ~3 ~3 ~43 slot.container 0 firework_rocket 1
+replaceitem block ~3 ~3 ~43 slot.container 1 firework_rocket 1
+replaceitem block ~3 ~3 ~43 slot.container 2 firework_rocket 1
+replaceitem block ~3 ~3 ~43 slot.container 3 firework_rocket 1
+replaceitem block ~3 ~3 ~43 slot.container 4 firework_rocket 1
+fill ~2 ~1 ~36 ~4 ~2 ~36 iron_block
+setblock ~3 ~3 ~36 sea_lantern
+fill ~2 ~1 ~44 ~4 ~2 ~44 iron_block
+setblock ~3 ~3 ~44 sea_lantern
+setblock ~1 ~3 ~39 stone_bricks
+setblock ~1 ~4 ~39 redstone_wire
+setblock ~1 ~3 ~38 stone_bricks
+setblock ~1 ~4 ~38 redstone_wire
+setblock ~1 ~3 ~37 dispenser ["facing_direction"=1]
+replaceitem block ~1 ~3 ~37 slot.container 0 firework_rocket 1
+replaceitem block ~1 ~3 ~37 slot.container 1 firework_rocket 1
+replaceitem block ~1 ~3 ~37 slot.container 2 firework_rocket 1
+replaceitem block ~1 ~3 ~37 slot.container 3 firework_rocket 1
+replaceitem block ~1 ~3 ~37 slot.container 4 firework_rocket 1
+setblock ~1 ~3 ~41 stone_bricks
+setblock ~1 ~4 ~41 redstone_wire
+setblock ~1 ~3 ~42 stone_bricks
+setblock ~1 ~4 ~42 redstone_wire
+setblock ~1 ~3 ~43 dispenser ["facing_direction"=1]
+replaceitem block ~1 ~3 ~43 slot.container 0 firework_rocket 1
+replaceitem block ~1 ~3 ~43 slot.container 1 firework_rocket 1
+replaceitem block ~1 ~3 ~43 slot.container 2 firework_rocket 1
+replaceitem block ~1 ~3 ~43 slot.container 3 firework_rocket 1
+replaceitem block ~1 ~3 ~43 slot.container 4 firework_rocket 1
+fill ~0 ~1 ~36 ~2 ~2 ~36 iron_block
+setblock ~1 ~3 ~36 sea_lantern
+fill ~0 ~1 ~44 ~2 ~2 ~44 iron_block
+setblock ~1 ~3 ~44 sea_lantern
 fill ~7 ~5 ~38 ~7 ~8 ~38 red_concrete
 fill ~7 ~5 ~42 ~7 ~8 ~42 red_concrete
 fill ~7 ~8 ~39 ~7 ~8 ~41 red_concrete
