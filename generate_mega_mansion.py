@@ -114,97 +114,148 @@ def gen_exterior():
     lines.append(fill(BACK_X1,-1,LW_Z1, BACK_X2,-1,BACK_Z2, "quartz_block"))
     lines.append(fill(LW_X1,-1,LW_Z1, LW_X2,-1,LW_Z2, "quartz_block"))
     lines.append(fill(RW_X1,-1,RW_Z1, RW_X2,-1,RW_Z2, "quartz_block"))
-    # Build each floor
+
+    W = WALL  # wall thickness (2 blocks)
+
+    # Build each floor with explicit wall planes (no fill-then-hollow)
     for floor in range(FLOORS):
         yb = floor * FH  # y base
-        yt = yb + FH     # y top
+        yt = yb + FH     # y top (ceiling)
         flr = "dark_oak_planks"
-        # Floor surface
-        lines.append(fill(BACK_X1,yb,LW_Z1, BACK_X2,yb,BACK_Z2, flr))
-        lines.append(fill(LW_X1,yb,LW_Z1, LW_X2,yb,BACK_Z1, flr))
-        lines.append(fill(RW_X1,yb,RW_Z1, RW_X2,yb,BACK_Z1, flr))
-        # Walls - back section
-        lines.append(fill(BACK_X1,yb+1,BACK_Z1, BACK_X2,yt,BACK_Z2, "quartz_block"))
-        lines.append(fill(BACK_X1+WALL,yb+1,BACK_Z1+WALL, BACK_X2-WALL,yt,BACK_Z2-WALL, "air"))
-        # Walls - left wing
-        lines.append(fill(LW_X1,yb+1,LW_Z1, LW_X2,yt,LW_Z2, "quartz_block"))
-        lines.append(fill(LW_X1+WALL,yb+1,LW_Z1+WALL, LW_X2-WALL,yt,LW_Z2-WALL, "air"))
-        # Walls - right wing
-        lines.append(fill(RW_X1,yb+1,RW_Z1, RW_X2,yt,RW_Z2, "quartz_block"))
-        lines.append(fill(RW_X1+WALL,yb+1,RW_Z1+WALL, RW_X2-WALL,yt,RW_Z2-WALL, "air"))
-        # Connect wings to back (remove internal walls)
-        lines.append(fill(LW_X1+WALL,yb+1,LW_Z2-WALL, LW_X2-WALL,yt,BACK_Z1+WALL, "air"))
-        lines.append(fill(RW_X1+WALL,yb+1,RW_Z2-WALL, RW_X2-WALL,yt,BACK_Z1+WALL, "air"))
-        # Gold trim at floor level
-        lines.append(fill(BACK_X1,yb+1,BACK_Z1, BACK_X2,yb+1,BACK_Z1, "gold_block"))
-        lines.append(fill(BACK_X1,yb+1,BACK_Z2, BACK_X2,yb+1,BACK_Z2, "gold_block"))
-        lines.append(fill(LW_X1,yb+1,LW_Z1, LW_X2,yb+1,LW_Z1, "gold_block"))
-        lines.append(fill(RW_X1,yb+1,RW_Z1, RW_X2,yb+1,RW_Z1, "gold_block"))
-    # Roof
-    lines.append(fill(BACK_X1,FLOORS*FH,LW_Z1, BACK_X2,FLOORS*FH,BACK_Z2, "quartz_block"))
-    lines.append(fill(LW_X1,FLOORS*FH,LW_Z1, LW_X2,FLOORS*FH,BACK_Z1, "quartz_block"))
-    lines.append(fill(RW_X1,FLOORS*FH,RW_Z1, RW_X2,FLOORS*FH,BACK_Z1, "quartz_block"))
+
+        # --- FLOOR SURFACES ---
+        lines.append(fill(BACK_X1, yb, BACK_Z1, BACK_X2, yb, BACK_Z2, flr))
+        lines.append(fill(LW_X1, yb, LW_Z1, LW_X2, yb, BACK_Z1-1, flr))
+        lines.append(fill(RW_X1, yb, RW_Z1, RW_X2, yb, BACK_Z1-1, flr))
+
+        # --- CLEAR ALL INTERIORS (air volumes) ---
+        # Back section interior
+        lines.append(fill(BACK_X1+W, yb+1, BACK_Z1+W, BACK_X2-W, yt-1, BACK_Z2-W, "air"))
+        # Left wing interior
+        lines.append(fill(LW_X1+W, yb+1, LW_Z1+W, LW_X2-W, yt-1, LW_Z2-W, "air"))
+        # Right wing interior
+        lines.append(fill(RW_X1+W, yb+1, RW_Z1+W, RW_X2-W, yt-1, RW_Z2-W, "air"))
+        # Open the junction between wings and back (remove internal partition)
+        lines.append(fill(LW_X1+W, yb+1, LW_Z2-W, LW_X2-W, yt-1, BACK_Z1+W, "air"))
+        lines.append(fill(RW_X1+W, yb+1, RW_Z2-W, RW_X2-W, yt-1, BACK_Z1+W, "air"))
+
+        # --- CEILING for this floor ---
+        lines.append(fill(BACK_X1, yt, BACK_Z1, BACK_X2, yt, BACK_Z2, flr))
+        lines.append(fill(LW_X1, yt, LW_Z1, LW_X2, yt, BACK_Z1-1, flr))
+        lines.append(fill(RW_X1, yt, RW_Z1, RW_X2, yt, BACK_Z1-1, flr))
+
+        # === EXPLICIT WALL PLANES (placed AFTER air clearing) ===
+        # Each wall is a thin slab (W blocks thick where external, 1 block where internal)
+
+        # -- BACK SECTION WALLS --
+        # Back wall (north face, Z=BACK_Z2)
+        lines.append(fill(BACK_X1, yb+1, BACK_Z2-W+1, BACK_X2, yt-1, BACK_Z2, "quartz_block"))
+        # Front center wall (south face, Z=BACK_Z1) - spans between wings
+        lines.append(fill(LW_X2, yb+1, BACK_Z1, RW_X1, yt-1, BACK_Z1+W-1, "quartz_block"))
+        # Left exterior wall of back section (X=BACK_X1=0)
+        lines.append(fill(BACK_X1, yb+1, BACK_Z1, BACK_X1+W-1, yt-1, BACK_Z2, "quartz_block"))
+        # Right exterior wall of back section (X=BACK_X2=140)
+        lines.append(fill(BACK_X2-W+1, yb+1, BACK_Z1, BACK_X2, yt-1, BACK_Z2, "quartz_block"))
+
+        # -- LEFT WING WALLS --
+        # Front face (Z=LW_Z1=25)
+        lines.append(fill(LW_X1, yb+1, LW_Z1, LW_X2, yt-1, LW_Z1+W-1, "quartz_block"))
+        # Left exterior (X=LW_X1=0)
+        lines.append(fill(LW_X1, yb+1, LW_Z1, LW_X1+W-1, yt-1, LW_Z2, "quartz_block"))
+        # Right/inner face (X=LW_X2=35)
+        lines.append(fill(LW_X2-W+1, yb+1, LW_Z1, LW_X2, yt-1, LW_Z2, "quartz_block"))
+
+        # -- RIGHT WING WALLS --
+        # Front face (Z=RW_Z1=25)
+        lines.append(fill(RW_X1, yb+1, RW_Z1, RW_X2, yt-1, RW_Z1+W-1, "quartz_block"))
+        # Left/inner face (X=RW_X1=105)
+        lines.append(fill(RW_X1, yb+1, RW_Z1, RW_X1+W-1, yt-1, RW_Z2, "quartz_block"))
+        # Right exterior (X=RW_X2=140)
+        lines.append(fill(RW_X2-W+1, yb+1, RW_Z1, RW_X2, yt-1, RW_Z2, "quartz_block"))
+
+        # -- RE-OPEN JUNCTIONS (cut doorways between wings and back) --
+        # Left wing → back section (clear through the shared wall at Z=60)
+        lines.append(fill(LW_X1+W, yb+1, LW_Z2-W, LW_X2-W, yt-1, BACK_Z1+W, "air"))
+        # Right wing → back section
+        lines.append(fill(RW_X1+W, yb+1, RW_Z2-W, RW_X2-W, yt-1, BACK_Z1+W, "air"))
+
+        # -- GOLD TRIM at floor level along all exterior faces --
+        lines.append(fill(BACK_X1, yb+1, BACK_Z2, BACK_X2, yb+1, BACK_Z2, "gold_block"))
+        lines.append(fill(LW_X2, yb+1, BACK_Z1, RW_X1, yb+1, BACK_Z1, "gold_block"))
+        lines.append(fill(LW_X1, yb+1, LW_Z1, LW_X2, yb+1, LW_Z1, "gold_block"))
+        lines.append(fill(RW_X1, yb+1, RW_Z1, RW_X2, yb+1, RW_Z1, "gold_block"))
+
+    # Roof (topmost ceiling already placed above, but ensure solid quartz roof cap)
+    lines.append(fill(BACK_X1, FLOORS*FH, LW_Z1, BACK_X2, FLOORS*FH, BACK_Z2, "quartz_block"))
+    lines.append(fill(LW_X1, FLOORS*FH, LW_Z1, LW_X2, FLOORS*FH, BACK_Z1-1, "quartz_block"))
+    lines.append(fill(RW_X1, FLOORS*FH, RW_Z1, RW_X2, FLOORS*FH, BACK_Z1-1, "quartz_block"))
+
     # Parapet
-    h = FLOORS*FH+1
-    lines.append(fill(BACK_X1,h,BACK_Z2, BACK_X2,h,BACK_Z2, "stone_bricks"))
-    lines.append(fill(BACK_X1,h,LW_Z1, BACK_X2,h,LW_Z1, "stone_bricks"))
-    lines.append(fill(LW_X1,h,LW_Z1, LW_X1,h,BACK_Z2, "stone_bricks"))
-    lines.append(fill(BACK_X2,h,LW_Z1, BACK_X2,h,BACK_Z2, "stone_bricks"))
-    # Grand portico (8 columns)
-    lines.append(fill(52,0,42, 88,0,60, "quartz_block"))
-    lines.append(fill(52,FLOORS*FH,42, 88,FLOORS*FH,60, "quartz_block"))
-    for cx in [55,60,65,70,75,80,85]:
-        lines.append(fill(cx,1,43, cx+1,FLOORS*FH-1,43, "quartz_block"))
-        lines.append(sb(cx,FLOORS*FH-1,43, "gold_block"))
-        lines.append(sb(cx+1,FLOORS*FH-1,43, "gold_block"))
-    # Grand entrance
-    lines.append(fill(64,1,BACK_Z1, 76,6,BACK_Z1, "air"))
+    h = FLOORS*FH + 1
+    lines.append(fill(BACK_X1, h, BACK_Z2, BACK_X2, h, BACK_Z2, "stone_bricks"))
+    lines.append(fill(BACK_X1, h, LW_Z1, BACK_X2, h, LW_Z1, "stone_bricks"))
+    lines.append(fill(LW_X1, h, LW_Z1, LW_X1, h, BACK_Z2, "stone_bricks"))
+    lines.append(fill(BACK_X2, h, LW_Z1, BACK_X2, h, BACK_Z2, "stone_bricks"))
+
+    # Grand portico (8 columns with floor and roof)
+    lines.append(fill(52, 0, 42, 88, 0, BACK_Z1-1, "quartz_block"))
+    lines.append(fill(52, FLOORS*FH, 42, 88, FLOORS*FH, BACK_Z1-1, "quartz_block"))
+    for cx in [55, 60, 65, 70, 75, 80, 85]:
+        lines.append(fill(cx, 1, 43, cx+1, FLOORS*FH-1, 43, "quartz_block"))
+        lines.append(sb(cx, FLOORS*FH-1, 43, "gold_block"))
+        lines.append(sb(cx+1, FLOORS*FH-1, 43, "gold_block"))
+
+    # Grand entrance (cut opening in the center-front wall)
+    lines.append(fill(64, 1, BACK_Z1, 76, 6, BACK_Z1+W-1, "air"))
     # Gold door frame
-    lines.append(fill(63,1,BACK_Z1, 63,7,BACK_Z1, "gold_block"))
-    lines.append(fill(77,1,BACK_Z1, 77,7,BACK_Z1, "gold_block"))
-    lines.append(fill(64,7,BACK_Z1, 76,7,BACK_Z1, "gold_block"))
+    lines.append(fill(63, 1, BACK_Z1, 63, 7, BACK_Z1, "gold_block"))
+    lines.append(fill(77, 1, BACK_Z1, 77, 7, BACK_Z1, "gold_block"))
+    lines.append(fill(64, 7, BACK_Z1, 76, 7, BACK_Z1, "gold_block"))
     lines.append("function bezos_foyer")
     write_func("bezos_exterior", lines)
 
 def gen_windows():
     lines = [comment("Phase 4: Georgian windows on all faces")]
+    W = WALL
     for floor in range(FLOORS):
         yb = floor * FH
         wy1 = yb + 2
         wy2 = yb + FH - 2
-        # Left wing front (Z=25)
+        # Left wing front (Z=25, wall from Z=25 to Z=26)
         for x in range(4, 32, 7):
-            lines.append(fill(x,wy1,LW_Z1, x+3,wy2,LW_Z1+WALL, "air"))
-            lines.append(fill(x,wy1,LW_Z1, x+3,wy2,LW_Z1, "glass"))
-        # Right wing front (Z=25)
+            lines.append(fill(x, wy1, LW_Z1, x+3, wy2, LW_Z1+W-1, "air"))
+            lines.append(fill(x, wy1, LW_Z1, x+3, wy2, LW_Z1, "glass"))
+        # Right wing front (Z=25, wall from Z=25 to Z=26)
         for x in range(109, 137, 7):
-            lines.append(fill(x,wy1,RW_Z1, x+3,wy2,RW_Z1+WALL, "air"))
-            lines.append(fill(x,wy1,RW_Z1, x+3,wy2,RW_Z1, "glass"))
-        # Back face (Z=100)
+            lines.append(fill(x, wy1, RW_Z1, x+3, wy2, RW_Z1+W-1, "air"))
+            lines.append(fill(x, wy1, RW_Z1, x+3, wy2, RW_Z1, "glass"))
+        # Back face (Z=100, wall from Z=99 to Z=100)
         for x in range(5, 135, 10):
-            lines.append(fill(x,wy1,BACK_Z2-WALL, x+5,wy2,BACK_Z2, "air"))
-            lines.append(fill(x,wy1,BACK_Z2, x+5,wy2,BACK_Z2, "glass"))
-        # Left side (X=0)
+            lines.append(fill(x, wy1, BACK_Z2-W+1, x+5, wy2, BACK_Z2, "air"))
+            lines.append(fill(x, wy1, BACK_Z2, x+5, wy2, BACK_Z2, "glass"))
+        # Left side (X=0, wall from X=0 to X=1)
         for z in range(30, 96, 10):
-            lines.append(fill(LW_X1,wy1,z, LW_X1+WALL,wy2,z+5, "air"))
-            lines.append(fill(LW_X1,wy1,z, LW_X1,wy2,z+5, "glass"))
-        # Right side (X=140)
+            lines.append(fill(LW_X1, wy1, z, LW_X1+W-1, wy2, z+5, "air"))
+            lines.append(fill(LW_X1, wy1, z, LW_X1, wy2, z+5, "glass"))
+        # Right side (X=140, wall from X=139 to X=140)
         for z in range(30, 96, 10):
-            lines.append(fill(BACK_X2-WALL,wy1,z, BACK_X2,wy2,z+5, "air"))
-            lines.append(fill(BACK_X2,wy1,z, BACK_X2,wy2,z+5, "glass"))
-        # Inner U faces
+            lines.append(fill(BACK_X2-W+1, wy1, z, BACK_X2, wy2, z+5, "air"))
+            lines.append(fill(BACK_X2, wy1, z, BACK_X2, wy2, z+5, "glass"))
+        # Inner U faces - left inner wall (X=34 to X=35)
         for z in range(30, 56, 10):
-            lines.append(fill(LW_X2-WALL,wy1,z, LW_X2,wy2,z+5, "air"))
-            lines.append(fill(LW_X2,wy1,z, LW_X2,wy2,z+5, "glass"))
-            lines.append(fill(RW_X1,wy1,z, RW_X1+WALL,wy2,z+5, "air"))
-            lines.append(fill(RW_X1,wy1,z, RW_X1,wy2,z+5, "glass"))
-        # Center front face (Z=60)
+            lines.append(fill(LW_X2-W+1, wy1, z, LW_X2, wy2, z+5, "air"))
+            lines.append(fill(LW_X2, wy1, z, LW_X2, wy2, z+5, "glass"))
+        # Inner U faces - right inner wall (X=105 to X=106)
+        for z in range(30, 56, 10):
+            lines.append(fill(RW_X1, wy1, z, RW_X1+W-1, wy2, z+5, "air"))
+            lines.append(fill(RW_X1, wy1, z, RW_X1, wy2, z+5, "glass"))
+        # Center front face (Z=60, wall from Z=60 to Z=61)
         for x in range(40, 55, 10):
-            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1+WALL, "air"))
-            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1, "glass"))
+            lines.append(fill(x, wy1, BACK_Z1, x+5, wy2, BACK_Z1+W-1, "air"))
+            lines.append(fill(x, wy1, BACK_Z1, x+5, wy2, BACK_Z1, "glass"))
         for x in range(85, 100, 10):
-            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1+WALL, "air"))
-            lines.append(fill(x,wy1,BACK_Z1, x+5,wy2,BACK_Z1, "glass"))
+            lines.append(fill(x, wy1, BACK_Z1, x+5, wy2, BACK_Z1+W-1, "air"))
+            lines.append(fill(x, wy1, BACK_Z1, x+5, wy2, BACK_Z1, "glass"))
     lines.append("function bezos_pool")
     write_func("bezos_windows", lines)
 
