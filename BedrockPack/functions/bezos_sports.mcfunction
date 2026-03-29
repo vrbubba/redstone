@@ -18,12 +18,13 @@ setblock ~161 ~1 ~81 sea_lantern
 setblock ~161 ~1 ~99 sea_lantern
 setblock ~179 ~1 ~81 sea_lantern
 setblock ~179 ~1 ~99 sea_lantern
-fill ~-40 ~-1 ~140 ~30 ~-1 ~250 grass_block
+fill ~-40 ~-1 ~140 ~30 ~0 ~250 grass_block
 fill ~-30 ~0 ~150 ~-20 ~0 ~158 lime_concrete
 setblock ~-25 ~1 ~154 white_wool
 setblock ~-25 ~2 ~154 white_wool
 fill ~-18 ~0 ~152 ~-15 ~0 ~156 sand
 fill ~-36 ~-2 ~152 ~-31 ~0 ~157 stone_bricks
+fill ~-35 ~0 ~153 ~-32 ~0 ~156 air
 fill ~-35 ~-1 ~153 ~-32 ~-1 ~156 water
 fill ~-10 ~0 ~170 ~0 ~0 ~178 lime_concrete
 setblock ~-5 ~1 ~174 white_wool
@@ -36,6 +37,7 @@ fill ~-25 ~0 ~190 ~-15 ~0 ~198 lime_concrete
 setblock ~-20 ~1 ~194 white_wool
 setblock ~-20 ~2 ~194 white_wool
 fill ~-31 ~-2 ~192 ~-26 ~0 ~197 stone_bricks
+fill ~-30 ~0 ~193 ~-27 ~0 ~196 air
 fill ~-30 ~-1 ~193 ~-27 ~-1 ~196 water
 fill ~5 ~0 ~195 ~15 ~0 ~203 lime_concrete
 setblock ~10 ~1 ~199 white_wool
@@ -49,6 +51,7 @@ setblock ~15 ~1 ~224 white_wool
 setblock ~15 ~2 ~224 white_wool
 fill ~22 ~0 ~222 ~25 ~0 ~226 sand
 fill ~4 ~-2 ~222 ~9 ~0 ~227 stone_bricks
+fill ~5 ~0 ~223 ~8 ~0 ~226 air
 fill ~5 ~-1 ~223 ~8 ~-1 ~226 water
 fill ~-30 ~0 ~235 ~-20 ~0 ~243 lime_concrete
 setblock ~-25 ~1 ~239 white_wool

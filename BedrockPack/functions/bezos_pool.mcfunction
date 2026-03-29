@@ -54,6 +54,9 @@ setblock ~112 ~-2 ~123 sea_lantern
 fill ~110 ~-1 ~120 ~115 ~-1 ~126 water
 fill ~40 ~0 ~143 ~100 ~0 ~158 quartz_block
 fill ~40 ~8 ~143 ~100 ~8 ~158 quartz_block
+fill ~40 ~1 ~143 ~100 ~7 ~158 quartz_block
+fill ~41 ~1 ~144 ~99 ~7 ~157 air
+fill ~41 ~1 ~143 ~99 ~7 ~143 air
 fill ~43 ~1 ~143 ~44 ~7 ~143 quartz_block
 setblock ~43 ~7 ~143 gold_block
 setblock ~44 ~7 ~143 gold_block

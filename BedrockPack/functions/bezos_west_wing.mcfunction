@@ -5,7 +5,7 @@ fill ~2 ~1 ~27 ~2 ~3 ~45 spruce_planks
 fill ~33 ~1 ~27 ~33 ~3 ~45 spruce_planks
 fill ~2 ~1 ~27 ~33 ~3 ~27 spruce_planks
 fill ~2 ~1 ~45 ~33 ~3 ~45 spruce_planks
-fill ~2 ~1 ~34 ~4 ~6 ~38 stone_bricks
+fill ~2 ~1 ~34 ~4 ~7 ~38 stone_bricks
 fill ~3 ~1 ~35 ~3 ~3 ~37 air
 setblock ~3 ~1 ~36 netherrack
 fill ~2 ~5 ~34 ~4 ~5 ~38 gold_block

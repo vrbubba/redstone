@@ -23,7 +23,7 @@ setblock ~125 ~1 ~73 spruce_planks
 setblock ~99 ~1 ~70 spruce_planks
 setblock ~129 ~1 ~70 spruce_planks
 setblock ~114 ~2 ~70 gold_block
-fill ~138 ~1 ~68 ~138 ~6 ~72 quartz_block
+fill ~138 ~1 ~68 ~138 ~7 ~72 quartz_block
 fill ~138 ~1 ~69 ~138 ~3 ~71 air
 setblock ~138 ~1 ~70 netherrack
 setblock ~138 ~5 ~68 lapis_block

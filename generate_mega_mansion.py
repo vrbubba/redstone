@@ -48,7 +48,7 @@ def gen_clear():
     lines = [
         comment("Phase 1: Clear and landscape"),
         fill(-50,-6,-20, 200,30,260, "air"),
-        fill(-50,-1,-20, 200,-1,260, "grass_block"),
+        fill(-50,-1,-20, 200,0,260, "grass_block"),
         "function bezos_driveway",
     ]
     write_func("bezos_clear", lines)
@@ -255,7 +255,7 @@ def gen_west_wing():
     lines.append(fill(2,1,27, 33,3,27, "spruce_planks"))
     lines.append(fill(2,1,45, 33,3,45, "spruce_planks"))
     # Grand fireplace (against outer wall, grounded)
-    lines.append(fill(2,1,34, 4,6,38, "stone_bricks"))
+    lines.append(fill(2,1,34, 4,FH-1,38, "stone_bricks"))
     lines.append(fill(3,1,35, 3,3,37, "air"))
     lines.append(sb(3,1,36, "netherrack"))
     lines.append(fill(2,5,34, 4,5,38, "gold_block"))  # gold mantel
@@ -342,7 +342,7 @@ def gen_east_wing():
     # Centerpiece (gold, on the table)
     lines.append(sb(114,2,70, "gold_block"))
     # Lapis + marble fireplace (built from floor)
-    lines.append(fill(138,1,68, 138,6,72, "quartz_block"))
+    lines.append(fill(138,1,68, 138,FH-1,72, "quartz_block"))
     lines.append(fill(138,1,69, 138,3,71, "air"))
     lines.append(sb(138,1,70, "netherrack"))
     lines.append(sb(138,5,68, "lapis_block"))
@@ -453,7 +453,7 @@ def gen_floor2():
     lines.append(fill(66,yb+1,95, 74,yb+2,95, "gold_block"))
     lines.append(fill(66,yb+3,95, 74,yb+3,95, "diamond_block"))
     # Master fireplace
-    lines.append(fill(69,yb+1,96, 71,yb+5,96, "cobblestone"))
+    lines.append(fill(69,yb+1,96, 71,yb+FH-1,96, "cobblestone"))
     lines.append(sb(70,yb+1,96, "netherrack"))
     lines.append(fill(68,yb+4,96, 72,yb+4,96, "gold_block"))
     # His bathroom
@@ -565,14 +565,20 @@ def gen_pool():
         lines.append(fill(hx+6,-2,120, hx+6,0,126, "prismarine"))
         lines.append(sb(hx+2,-2,123, "sea_lantern"))
         lines.append(fill(hx,-1,120, hx+5,-1,126, "water"))
-    # Pool pavilion (8 columns)
+    # Pool pavilion (8 columns + back/side walls)
     lines.append(fill(40,0,143, 100,0,158, "quartz_block"))
     lines.append(fill(40,8,143, 100,8,158, "quartz_block"))
+    # Solid exterior walls
+    lines.append(fill(40,1,143, 100,7,158, "quartz_block"))
+    # Hollow interior
+    lines.append(fill(41,1,144, 99,7,157, "air"))
+    # Open front
+    lines.append(fill(41,1,143, 99,7,143, "air"))
     for cx in [43,50,57,64,71,78,85,92]:
         lines.append(fill(cx,1,143, cx+1,7,143, "quartz_block"))
         lines.append(sb(cx,7,143, "gold_block"))
         lines.append(sb(cx+1,7,143, "gold_block"))
-    lines.append(fill(45,1,143, 95,5,143, "air"))  # open front
+    lines.append(fill(45,1,143, 95,5,143, "air"))  # open front access
     # Pavilion lounge furniture
     lines.append(fill(50,1,150, 50,2,156, "dark_oak_planks"))  # bar
     lines.append(fill(52,1,150, 52,1,156, "spruce_planks"))  # stools
@@ -695,7 +701,7 @@ def gen_sports():
             lines.append(sb(x,1,z, "sea_lantern"))
 
     # 9-HOLE GOLF COURSE
-    lines.append(fill(-40,-1,140, 30,-1,250, "grass_block"))
+    lines.append(fill(-40,-1,140, 30,0,250, "grass_block"))
     greens = [(-30,150),(-10,170),(10,155),(-25,190),(5,195),(-15,215),
               (10,220),(-30,235),(0,245)]
     for i,(gx,gz) in enumerate(greens):
@@ -707,6 +713,7 @@ def gen_sports():
         if i % 3 == 0:
             # Golf pond - contained basin
             lines.append(fill(gx-6,-2,gz+2, gx-1,0,gz+7, "stone_bricks"))
+            lines.append(fill(gx-5,0,gz+3, gx-2,0,gz+6, "air"))  # dig out grass
             lines.append(fill(gx-5,-1,gz+3, gx-2,-1,gz+6, "water"))
 
     lines.append("function bezos_garage")

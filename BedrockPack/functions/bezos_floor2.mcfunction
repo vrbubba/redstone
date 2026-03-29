@@ -6,7 +6,7 @@ fill ~57 ~8 ~77 ~83 ~8 ~96 red_wool
 fill ~66 ~9 ~92 ~74 ~9 ~95 white_wool
 fill ~66 ~9 ~95 ~74 ~10 ~95 gold_block
 fill ~66 ~11 ~95 ~74 ~11 ~95 diamond_block
-fill ~69 ~9 ~96 ~71 ~13 ~96 cobblestone
+fill ~69 ~9 ~96 ~71 ~15 ~96 cobblestone
 setblock ~70 ~9 ~96 netherrack
 fill ~68 ~12 ~96 ~72 ~12 ~96 gold_block
 fill ~57 ~8 ~77 ~63 ~16 ~82 quartz_block
