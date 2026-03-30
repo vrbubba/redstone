@@ -68,11 +68,18 @@ def gen_clear():
     write_func("bezos_clear", lines)
 
 def gen_clear2():
-    lines = [
-        comment("Phase 1b: Lay ground"),
-        fill(-50, -1, -20, 200, 0, 260, "grass_block"),
-        "function bezos_driveway",
-    ]
+    lines = [comment("Phase 1b: Fill underground + lay ground")]
+    # Fill solid underground so there are no voids under features
+    # (garage and pool will dig their own holes later)
+    for xs in range(-50, 200, 50):
+        xe = min(xs + 49, 200)
+        lines.append(fill(xs, -6, -20, xe, -4, 260, "stone"))
+    for xs in range(-50, 200, 50):
+        xe = min(xs + 49, 200)
+        lines.append(fill(xs, -3, -20, xe, -2, 260, "dirt"))
+    # Surface grass
+    lines.append(fill(-50, -1, -20, 200, 0, 260, "grass_block"))
+    lines.append("function bezos_driveway")
     write_func("bezos_clear2", lines)
 
 def gen_driveway():
