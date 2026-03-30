@@ -84,7 +84,8 @@ def gen_driveway():
     # Motor court circle
     lines.append(fill(40,0,22, 100,0,38, "polished_deepslate"))
     lines.append(fill(40,-1,22, 100,-1,38, "polished_deepslate"))
-    # Fountain
+    # Fountain (with ground-level base)
+    lines.append(fill(63,0,27, 77,0,33, "quartz_block"))  # base at ground
     lines.append(fill(63,1,27, 77,1,33, "quartz_block"))
     lines.append(fill(65,2,28, 75,2,32, "prismarine"))
     lines.append(fill(67,3,29, 73,3,31, "prismarine"))
@@ -93,8 +94,9 @@ def gen_driveway():
     # Driveway trees (8 sycamores)
     for i, z in enumerate(range(-10, 22, 8)):
         for x in [62, 78]:
-            lines.append(fill(x,1,z, x,6,z, "oak_log"))
-            lines.append(fill(x-2,6,z-2, x+2,9,z+2, "leaves"))
+            lines.append(fill(x,1,z, x,8,z, "oak_log"))  # trunk reaches canopy
+            lines.append(fill(x-2,7,z-2, x+2,9,z+2, "leaves"))
+            lines.append(fill(x-1,10,z-1, x+1,10,z+1, "leaves"))
     # Front flower beds (at ground level, not floating)
     lines.append(fill(20,0,20, 55,0,22, "grass_block"))
     lines.append(fill(85,0,20, 120,0,22, "grass_block"))
@@ -102,18 +104,25 @@ def gen_driveway():
         lines.append(sb(x,1,21, "red_flower" if x%8==2 else "yellow_flower"))
     for x in range(87, 120, 4):
         lines.append(sb(x,1,21, "yellow_flower" if x%8==3 else "red_flower"))
-    # Gate pillars
+    # Gate pillars (with foundation at Y=0)
+    lines.append(fill(61,0,-18, 64,0,-18, "stone_bricks"))
+    lines.append(fill(76,0,-18, 79,0,-18, "stone_bricks"))
     lines.append(fill(61,1,-18, 64,8,-18, "stone_bricks"))
     lines.append(fill(76,1,-18, 79,8,-18, "stone_bricks"))
     lines.append(sb(62,9,-18, "sea_lantern"))
     lines.append(sb(77,9,-18, "sea_lantern"))
     lines.append(fill(65,1,-18, 75,5,-18, "iron_bars"))
-    # Perimeter hedges
-    lines.append(fill(-50,1,-20, 60,5,-20, "leaves"))
-    lines.append(fill(80,1,-20, 200,5,-20, "leaves"))
-    lines.append(fill(-50,1,-20, -50,5,260, "leaves"))
-    lines.append(fill(200,1,-20, 200,5,260, "leaves"))
-    lines.append(fill(-50,1,260, 200,5,260, "leaves"))
+    # Perimeter hedges (with stone base at Y=0 so they don't float)
+    lines.append(fill(-50,0,-20, 60,0,-20, "stone_bricks"))
+    lines.append(fill(80,0,-20, 200,0,-20, "stone_bricks"))
+    lines.append(fill(-50,0,-20, -50,0,260, "stone_bricks"))
+    lines.append(fill(200,0,-20, 200,0,260, "stone_bricks"))
+    lines.append(fill(-50,0,260, 200,0,260, "stone_bricks"))
+    lines.append(fill(-50,1,-20, 60,3,-20, "leaves"))
+    lines.append(fill(80,1,-20, 200,3,-20, "leaves"))
+    lines.append(fill(-50,1,-20, -50,3,260, "leaves"))
+    lines.append(fill(200,1,-20, 200,3,260, "leaves"))
+    lines.append(fill(-50,1,260, 200,3,260, "leaves"))
     lines.append("function bezos_exterior")
     write_func("bezos_driveway", lines)
 
@@ -755,10 +764,11 @@ def gen_gardens():
         for x in range(153,168,3):
             lines.append(sb(x,1,gz+3, "grass_block"))
             lines.append(sb(x,2,gz+3, "red_flower"))
-    # Rear trees
+    # Rear trees (trunk extends into canopy)
     for tx,tz in [(10,130),(30,135),(110,130),(130,135),(70,155),(50,160),(90,160)]:
-        lines.append(fill(tx,1,tz, tx,7,tz, "oak_log"))
-        lines.append(fill(tx-3,7,tz-3, tx+3,10,tz+3, "leaves"))
+        lines.append(fill(tx,1,tz, tx,9,tz, "oak_log"))  # trunk reaches into canopy
+        lines.append(fill(tx-3,8,tz-3, tx+3,10,tz+3, "leaves"))
+        lines.append(fill(tx-2,11,tz-2, tx+2,11,tz+2, "leaves"))
     lines.append("function bezos_sports")
     write_func("bezos_gardens", lines)
 
@@ -773,9 +783,10 @@ def gen_sports():
     lines.append(fill(190,0,31, 190,0,64, "white_concrete"))
     lines.append(fill(170,0,31, 170,0,64, "white_concrete"))
     lines.append(fill(170,1,31, 170,2,64, "cobblestone_wall"))
-    # Viewing gallery
-    lines.append(fill(148,0,40, 148,3,55, "quartz_block"))
-    lines.append(fill(148,3,40, 148,3,55, "spruce_planks"))
+    # Viewing gallery (with ground base and depth)
+    lines.append(fill(147,0,40, 149,0,55, "quartz_block"))  # ground base
+    lines.append(fill(147,1,40, 149,3,55, "quartz_block"))   # solid stand
+    lines.append(fill(148,3,40, 148,3,55, "spruce_planks"))  # bench seating
 
     # HELIPAD
     lines.append(fill(160,0,80, 180,0,100, "gray_concrete"))
@@ -795,8 +806,9 @@ def gen_sports():
               (10,220),(-30,235),(0,245)]
     for i,(gx,gz) in enumerate(greens):
         lines.append(fill(gx,0,gz, gx+10,0,gz+8, "lime_concrete"))
-        lines.append(sb(gx+5,1,gz+4, "white_wool"))  # flag
-        lines.append(sb(gx+5,2,gz+4, "white_wool"))
+        lines.append(sb(gx+5,1,gz+4, "oak_fence"))   # flag pole base
+        lines.append(sb(gx+5,2,gz+4, "oak_fence"))   # flag pole
+        lines.append(sb(gx+5,3,gz+4, "white_wool"))  # flag
         if i % 2 == 0:
             lines.append(fill(gx+12,0,gz+2, gx+15,0,gz+6, "sand"))
         if i % 3 == 0:
@@ -829,15 +841,19 @@ def gen_garage():
     # SPACESHIP SAUNA (Bezos's actual addition)
     lines.append(comment("--- Spaceship Sauna (cone-shaped) ---"))
     lines.append(fill(155,0,105, 165,0,115, "quartz_block"))
-    # Cone shape (layers getting smaller)
+    # Cone walls (layers getting smaller) - solid then hollow
+    cx, cz = 160, 110
     for y in range(8):
         r = 5 - y//2
         if r < 1: r = 1
-        cx, cz = 160, 110
         lines.append(fill(cx-r,y+1,cz-r, cx+r,y+1,cz+r, "glass"))
+    # Hollow interior (after all walls are placed)
+    for y in range(8):
+        r = 5 - y//2
+        if r < 2: continue
         lines.append(fill(cx-r+1,y+1,cz-r+1, cx+r-1,y+1,cz+r-1, "air"))
     lines.append(sb(160,9,110, "gold_block"))  # gold tip
-    # Interior
+    # Interior floor
     lines.append(fill(158,1,108, 162,1,112, "spruce_planks"))
     lines.append(sb(160,1,110, "glowstone"))
 

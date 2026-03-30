@@ -40,20 +40,20 @@ setblock ~84 ~-2 ~48 sea_lantern
 # --- Spaceship Sauna (cone-shaped) ---
 fill ~155 ~0 ~105 ~165 ~0 ~115 quartz_block
 fill ~155 ~1 ~105 ~165 ~1 ~115 glass
-fill ~156 ~1 ~106 ~164 ~1 ~114 air
 fill ~155 ~2 ~105 ~165 ~2 ~115 glass
-fill ~156 ~2 ~106 ~164 ~2 ~114 air
 fill ~156 ~3 ~106 ~164 ~3 ~114 glass
-fill ~157 ~3 ~107 ~163 ~3 ~113 air
 fill ~156 ~4 ~106 ~164 ~4 ~114 glass
-fill ~157 ~4 ~107 ~163 ~4 ~113 air
 fill ~157 ~5 ~107 ~163 ~5 ~113 glass
-fill ~158 ~5 ~108 ~162 ~5 ~112 air
 fill ~157 ~6 ~107 ~163 ~6 ~113 glass
-fill ~158 ~6 ~108 ~162 ~6 ~112 air
 fill ~158 ~7 ~108 ~162 ~7 ~112 glass
-fill ~159 ~7 ~109 ~161 ~7 ~111 air
 fill ~158 ~8 ~108 ~162 ~8 ~112 glass
+fill ~156 ~1 ~106 ~164 ~1 ~114 air
+fill ~156 ~2 ~106 ~164 ~2 ~114 air
+fill ~157 ~3 ~107 ~163 ~3 ~113 air
+fill ~157 ~4 ~107 ~163 ~4 ~113 air
+fill ~158 ~5 ~108 ~162 ~5 ~112 air
+fill ~158 ~6 ~108 ~162 ~6 ~112 air
+fill ~159 ~7 ~109 ~161 ~7 ~111 air
 fill ~159 ~8 ~109 ~161 ~8 ~111 air
 setblock ~160 ~9 ~110 gold_block
 fill ~158 ~1 ~108 ~162 ~1 ~112 spruce_planks
