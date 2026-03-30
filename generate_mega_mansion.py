@@ -506,36 +506,40 @@ def gen_east_wing():
     write_func("bezos_east_wing", lines)
 
 def make_bedroom(lines, x1, z1, y_base, width=10, depth=8, carpet="white_wool", gold_headboard=True):
-    """Generate one fully furnished luxury bedroom"""
+    """Generate one fully furnished luxury bedroom.
+    Only places partition walls and furniture - does NOT build outer walls/ceiling
+    (those come from the parent building shell).
+    """
     x2, z2 = x1+width, z1+depth
-    lines.append(fill(x1,y_base,z1, x2,y_base+FH,z2, "quartz_block"))
-    lines.append(fill(x1+1,y_base+1,z1+1, x2-1,y_base+FH-1,z2-1, "air"))
-    lines.append(fill(x1+1,y_base,z1+1, x2-1,y_base,z2-1, carpet))
-    # Bed (king size with gold headboard)
+    # Carpet floor (on existing floor slab)
+    lines.append(fill(x1+1, y_base+1, z1+1, x2-1, y_base+1, z2-1, carpet))
+    # Partition walls (thin inner walls between rooms, floor-to-ceiling)
+    lines.append(fill(x1, y_base+1, z1, x2, y_base+FH-1, z1, "quartz_block"))   # front wall
+    lines.append(fill(x1, y_base+1, z2, x2, y_base+FH-1, z2, "quartz_block"))   # back wall
+    lines.append(fill(x2, y_base+1, z1, x2, y_base+FH-1, z2, "quartz_block"))   # side wall
+    # Re-clear interior (in case partition overlapped)
+    lines.append(fill(x1+1, y_base+2, z1+1, x2-1, y_base+FH-1, z2-1, "air"))
+    # Bed (king size)
     bx = x1 + width//2 - 1
-    lines.append(fill(bx,y_base+1,z2-3, bx+2,y_base+1,z2-2, "white_wool"))
+    lines.append(fill(bx, y_base+1, z2-3, bx+2, y_base+1, z2-2, "white_wool"))
     if gold_headboard:
-        lines.append(fill(bx,y_base+1,z2-1, bx+2,y_base+2,z2-1, "gold_block"))
-        lines.append(fill(bx,y_base+1,z2-2, bx+2,y_base+1,z2-2, "red_wool"))  # bedspread
-    # Nightstands (both sides of bed)
-    lines.append(sb(bx-1,y_base+1,z2-2, "dark_oak_planks"))
-    lines.append(sb(bx+3,y_base+1,z2-2, "dark_oak_planks"))
-    # Bedside lamps (on nightstands, not floating)
-    lines.append(sb(bx-1,y_base+2,z2-2, "sea_lantern"))
-    lines.append(sb(bx+3,y_base+2,z2-2, "sea_lantern"))
-    # Dresser against side wall
-    lines.append(fill(x2-2,y_base+1,z1+2, x2-2,y_base+1,z1+4, "dark_oak_planks"))
+        lines.append(fill(bx, y_base+1, z2-1, bx+2, y_base+2, z2-1, "gold_block"))
+        lines.append(fill(bx, y_base+1, z2-2, bx+2, y_base+1, z2-2, "red_wool"))
+    # Nightstands
+    lines.append(sb(bx-1, y_base+1, z2-2, "dark_oak_planks"))
+    lines.append(sb(bx+3, y_base+1, z2-2, "dark_oak_planks"))
+    # Bedside lamps
+    lines.append(sb(bx-1, y_base+2, z2-2, "sea_lantern"))
+    lines.append(sb(bx+3, y_base+2, z2-2, "sea_lantern"))
+    # Dresser
+    lines.append(fill(x2-2, y_base+1, z1+2, x2-2, y_base+1, z1+4, "dark_oak_planks"))
     # Armchair
-    lines.append(sb(x1+2,y_base+1,z1+2, "spruce_planks"))
-    # Rug
-    lines.append(fill(bx-1,y_base,z2-4, bx+3,y_base,z2-3, carpet))
-    # Window
-    lines.append(fill(x1+3,y_base+2,z1, x1+width-3,y_base+FH-3,z1, "glass"))
-    # Ceiling light (embedded in ceiling, not floating)
+    lines.append(sb(x1+2, y_base+1, z1+2, "spruce_planks"))
+    # Door opening (in front partition wall)
+    lines.append(fill(x1+2, y_base+2, z1, x1+3, y_base+3, z1, "air"))
+    lines.append(fill(x1+2, y_base+4, z1, x1+3, y_base+4, z1, "gold_block"))
+    # Ceiling light
     lines.append(sb(x1+width//2, y_base+FH-1, z1+depth//2, "glowstone"))
-    # Door opening with gold frame
-    lines.append(fill(x1,y_base+1,z1+depth//2, x1,y_base+3,z1+depth//2+1, "air"))
-    lines.append(fill(x1,y_base+4,z1+depth//2, x1,y_base+4,z1+depth//2+1, "gold_block"))
 
 def gen_floor2():
     lines = [comment("Phase 8: Floor 2 - Master suite + 14 bedrooms")]
