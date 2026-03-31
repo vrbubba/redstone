@@ -29,4 +29,3 @@ fill ~0 ~0 ~3 ~0 ~0 ~4 stone
 fill ~1 ~0 ~5 ~3 ~0 ~5 stone
 fill ~-2 ~2 ~0 ~-2 ~3 ~0 white_concrete
 setblock ~2 ~4 ~-2 sea_lantern
-function gauntlet_arrows

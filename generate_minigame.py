@@ -52,6 +52,11 @@ def gen_master():
         comment("THE GAUNTLET - Redstone Obstacle Course Minigame"),
         comment("6 stages of challenges with real redstone mechanics!"),
         "function gauntlet_clear",
+        "function gauntlet_start",
+        "function gauntlet_arrows",
+        "function gauntlet_lava",
+        "function gauntlet_ice",
+        "function gauntlet_finish",
     ]
     write_func("build_gauntlet", lines)
 
@@ -59,7 +64,6 @@ def gen_clear():
     lines = [comment("Phase 1: Clear area")]
     lines.append(fill(-10, -1, -5, 15, 20, 100, "air"))
     lines.append(fill(-10, -1, -5, 15, 0, 100, "stone"))
-    lines.append("function gauntlet_start")
     write_func("gauntlet_clear", lines)
 
 def gen_start():
@@ -102,7 +106,6 @@ def gen_start():
     lines.append(fill(-2, FY+2, 0, -2, FY+3, 0, "white_concrete"))
     lines.append(sb(2, FY+4, -2, "sea_lantern"))
 
-    lines.append("function gauntlet_arrows")
     write_func("gauntlet_start", lines)
 
 def gen_arrows():
@@ -158,7 +161,6 @@ def gen_arrows():
     lines.append(sb(CX1, FY+4, z1, "redstone_lamp"))
     lines.append(sb(CX2, FY+4, z1, "redstone_lamp"))
 
-    lines.append("function gauntlet_lava")
     write_func("gauntlet_arrows", lines)
 
 def gen_lava():
@@ -190,7 +192,6 @@ def gen_lava():
         lines.append(sb(CX1-1, FY+3, z, "glowstone"))
         lines.append(sb(CX2+1, FY+3, z, "glowstone"))
 
-    lines.append("function gauntlet_ice")
     write_func("gauntlet_lava", lines)
 
 def gen_ice():
@@ -244,7 +245,6 @@ def gen_ice():
         lines.append(sb(CX1, FY+WALL_H-1, z, "redstone_lamp"))
         lines.append(sb(CX2, FY+WALL_H-1, z, "redstone_lamp"))
 
-    lines.append("function gauntlet_finish")
     write_func("gauntlet_ice", lines)
 
 def gen_finish():

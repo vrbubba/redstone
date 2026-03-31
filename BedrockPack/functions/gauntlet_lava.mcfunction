@@ -32,4 +32,3 @@ setblock ~-3 ~3 ~47 glowstone
 setblock ~7 ~3 ~47 glowstone
 setblock ~-3 ~3 ~52 glowstone
 setblock ~7 ~3 ~52 glowstone
-function gauntlet_ice

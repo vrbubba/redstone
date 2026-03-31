@@ -7,4 +7,3 @@ fill ~-10 ~-1 ~-5 ~15 ~0 ~25 stone
 fill ~-10 ~-1 ~26 ~15 ~0 ~56 stone
 fill ~-10 ~-1 ~57 ~15 ~0 ~87 stone
 fill ~-10 ~-1 ~88 ~15 ~0 ~100 stone
-function gauntlet_start

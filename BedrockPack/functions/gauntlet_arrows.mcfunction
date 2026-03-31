@@ -254,4 +254,3 @@ setblock ~8 ~2 ~27 redstone_wire
 setblock ~8 ~1 ~27 stone
 setblock ~-2 ~4 ~5 redstone_lamp
 setblock ~6 ~4 ~5 redstone_lamp
-function gauntlet_lava

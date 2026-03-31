@@ -110,4 +110,3 @@ setblock ~-2 ~5 ~82 redstone_lamp
 setblock ~6 ~5 ~82 redstone_lamp
 setblock ~-2 ~5 ~86 redstone_lamp
 setblock ~6 ~5 ~86 redstone_lamp
-function gauntlet_finish
