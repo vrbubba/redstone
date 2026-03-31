@@ -130,8 +130,9 @@ def gen_arrows():
     # Observer clock (two facing each other = fast pulse)
     lines.append(comment("--- Redstone clock (observer pair) ---"))
     cx, cy, cz = CX1-3, FY+2, z1+10
-    lines.append(sb(cx, cy, cz, 'observer ["minecraft:facing_direction"="east"]'))
-    lines.append(sb(cx+1, cy, cz, 'observer ["minecraft:facing_direction"="west"]'))
+    # facing_direction: 0=down,1=up,2=north,3=south,4=west,5=east
+    lines.append(sb(cx, cy, cz, 'observer ["facing_direction"=5]'))  # facing east
+    lines.append(sb(cx+1, cy, cz, 'observer ["facing_direction"=4]'))  # facing west
     # Output from observer back (west side) → wire to dispensers
     lines.append(sb(cx-1, cy, cz, "redstone_wire"))
     lines.append(sb(cx-1, cy-1, cz, "stone"))
@@ -143,10 +144,10 @@ def gen_arrows():
     lines.append(sb(cx-1, cy, cz+1, "redstone_wire"))
     lines.append(sb(cx-1, cy-1, cz+1, "stone"))
 
-    # Right side: separate wire from same clock or mirror
+    # Right side: separate clock for right dispensers
     cx2 = CX2+3
-    lines.append(sb(cx2, cy, cz, 'observer ["minecraft:facing_direction"="west"]'))
-    lines.append(sb(cx2+1, cy, cz, 'observer ["minecraft:facing_direction"="east"]'))
+    lines.append(sb(cx2, cy, cz, 'observer ["facing_direction"=4]'))  # facing west
+    lines.append(sb(cx2+1, cy, cz, 'observer ["facing_direction"=5]'))  # facing east
     lines.append(sb(cx2+2, cy, cz, "redstone_wire"))
     lines.append(sb(cx2+2, cy-1, cz, "stone"))
     for z in range(z1+1, z2):
@@ -227,10 +228,11 @@ def gen_ice():
             lines.append(sb(CX2, FY+2, z+1, "stone"))
 
     # Observer clocks for pistons (one per side)
-    for side_x, obs_dir1, obs_dir2 in [(CX1-3, "east", "west"), (CX2+3, "west", "east")]:
-        lines.append(sb(side_x, FY+1, pz1+5, f'observer ["minecraft:facing_direction"="{obs_dir1}"]'))
-        dx = 1 if obs_dir1 == "east" else -1
-        lines.append(sb(side_x+dx, FY+1, pz1+5, f'observer ["minecraft:facing_direction"="{obs_dir2}"]'))
+    # facing_direction: 4=west, 5=east
+    for side_x, dir1, dir2 in [(CX1-3, 5, 4), (CX2+3, 4, 5)]:
+        lines.append(sb(side_x, FY+1, pz1+5, f'observer ["facing_direction"={dir1}]'))
+        dx = 1 if dir1 == 5 else -1
+        lines.append(sb(side_x+dx, FY+1, pz1+5, f'observer ["facing_direction"={dir2}]'))
         # Wire from observer to piston line
         wire_x = CX1-2 if side_x < 0 else CX2+2
         for z in range(pz1+2, pz2):
@@ -273,11 +275,10 @@ def gen_finish():
     # Pressure plate to trigger fireworks
     lines.append(sb(2, FY+1, z1+3, "stone_pressure_plate"))
     lines.append(sb(2, FY, z1+3, "stone"))
-    # Wire to dispensers
+    # Wire connecting pressure plate to dispensers
+    lines.append(fill(-3, FY-1, z1+2, 5, FY-1, z1+2, "stone"))
     for x in range(-3, 6):
         lines.append(sb(x, FY, z1+2, "redstone_wire"))
-        if x in (-3, 1, 5):
-            lines.append(sb(x, FY, z1+3, "redstone_wire"))
 
     # Reward chest
     lines.append(sb(2, FY+1, z1+9, "chest"))

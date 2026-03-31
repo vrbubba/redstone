@@ -50,8 +50,8 @@ setblock ~7 ~1 ~86 sticky_piston ["facing_direction"=4]
 setblock ~7 ~2 ~86 sticky_piston ["facing_direction"=4]
 setblock ~6 ~1 ~86 stone
 setblock ~6 ~2 ~86 stone
-setblock ~-5 ~1 ~79 observer ["minecraft:facing_direction"="east"]
-setblock ~-4 ~1 ~79 observer ["minecraft:facing_direction"="west"]
+setblock ~-5 ~1 ~79 observer ["facing_direction"=5]
+setblock ~-4 ~1 ~79 observer ["facing_direction"=4]
 setblock ~-4 ~1 ~76 redstone_wire
 setblock ~-4 ~0 ~76 stone
 setblock ~-4 ~1 ~77 redstone_wire
@@ -76,8 +76,8 @@ setblock ~-4 ~1 ~86 redstone_wire
 setblock ~-4 ~0 ~86 stone
 setblock ~-4 ~1 ~87 redstone_wire
 setblock ~-4 ~0 ~87 stone
-setblock ~9 ~1 ~79 observer ["minecraft:facing_direction"="west"]
-setblock ~8 ~1 ~79 observer ["minecraft:facing_direction"="east"]
+setblock ~9 ~1 ~79 observer ["facing_direction"=4]
+setblock ~8 ~1 ~79 observer ["facing_direction"=5]
 setblock ~8 ~1 ~76 redstone_wire
 setblock ~8 ~0 ~76 stone
 setblock ~8 ~1 ~77 redstone_wire

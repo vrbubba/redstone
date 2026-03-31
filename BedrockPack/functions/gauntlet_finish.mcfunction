@@ -29,18 +29,16 @@ replaceitem block ~5 ~0 ~93 slot.container 3 firework_rocket 1
 replaceitem block ~5 ~0 ~93 slot.container 4 firework_rocket 1
 setblock ~2 ~1 ~93 stone_pressure_plate
 setblock ~2 ~0 ~93 stone
+fill ~-3 ~-1 ~92 ~5 ~-1 ~92 stone
 setblock ~-3 ~0 ~92 redstone_wire
-setblock ~-3 ~0 ~93 redstone_wire
 setblock ~-2 ~0 ~92 redstone_wire
 setblock ~-1 ~0 ~92 redstone_wire
 setblock ~0 ~0 ~92 redstone_wire
 setblock ~1 ~0 ~92 redstone_wire
-setblock ~1 ~0 ~93 redstone_wire
 setblock ~2 ~0 ~92 redstone_wire
 setblock ~3 ~0 ~92 redstone_wire
 setblock ~4 ~0 ~92 redstone_wire
 setblock ~5 ~0 ~92 redstone_wire
-setblock ~5 ~0 ~93 redstone_wire
 setblock ~2 ~1 ~99 chest
 setblock ~-3 ~1 ~101 sea_lantern
 setblock ~-1 ~1 ~101 sea_lantern

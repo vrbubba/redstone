@@ -154,8 +154,8 @@ replaceitem block ~7 ~2 ~25 slot.container 7 arrow 64
 replaceitem block ~-3 ~2 ~25 slot.container 8 arrow 64
 replaceitem block ~7 ~2 ~25 slot.container 8 arrow 64
 # --- Redstone clock (observer pair) ---
-setblock ~-5 ~2 ~15 observer ["minecraft:facing_direction"="east"]
-setblock ~-4 ~2 ~15 observer ["minecraft:facing_direction"="west"]
+setblock ~-5 ~2 ~15 observer ["facing_direction"=5]
+setblock ~-4 ~2 ~15 observer ["facing_direction"=4]
 setblock ~-6 ~2 ~15 redstone_wire
 setblock ~-6 ~1 ~15 stone
 setblock ~-4 ~2 ~6 redstone_wire
@@ -204,8 +204,8 @@ setblock ~-4 ~2 ~27 redstone_wire
 setblock ~-4 ~1 ~27 stone
 setblock ~-6 ~2 ~16 redstone_wire
 setblock ~-6 ~1 ~16 stone
-setblock ~9 ~2 ~15 observer ["minecraft:facing_direction"="west"]
-setblock ~10 ~2 ~15 observer ["minecraft:facing_direction"="east"]
+setblock ~9 ~2 ~15 observer ["facing_direction"=4]
+setblock ~10 ~2 ~15 observer ["facing_direction"=5]
 setblock ~11 ~2 ~15 redstone_wire
 setblock ~11 ~1 ~15 stone
 setblock ~8 ~2 ~6 redstone_wire
